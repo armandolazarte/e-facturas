@@ -1,0 +1,886 @@
+body{
+font-family: 'Open Sans';
+}
+
+div, ul, span, img{
+position: absolute;
+display: none;
+}
+
+.container-3B{
+width: 908px;
+height: 1213px;
+/*background: url('../images/FACTURA-B-FINAL-2-2.jpg') no-repeat -19px 6px;*/
+background-size: 908px 1213px;
+position: relative;
+page-break-after: always;
+display: block;
+color: #5F575A;
+}
+
+.container-3B:last-child{
+page-break-after: auto;
+}
+
+
+.container-3B .logo {
+  top: 50px;
+  left: 120px;
+  width: 235px;
+  height: 75px;
+background: url('a.jpg') no-repeat 0 0;
+/*background-color: #efefef;*/
+  display: block;
+}
+
+.container-3B .direccion2 {
+  top: 162px;
+  left: 95px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: right;
+  display: block;
+  text-transform: uppercase;
+  width: 200px;
+}
+
+.container-3B .cod-postal2 {
+  top: 162px;
+  left: 300px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+}
+
+.container-3B .localidad2 {
+  top: 180px;
+  left: 56px;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: right;
+  display: block;
+  width: 175px;
+}
+
+.container-3B .provincia2 {
+  top: 180px;
+  left: 243px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+}
+
+.container-3B .telefono2 {
+  top: 197px;
+  left: 62px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: right;
+  display: block;
+  width: 175px;
+}
+
+.container-3B .email2 {
+  top: 197px;
+  left: 249px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+}
+
+.container-3B .iva-responsable-inscripto {
+  top: 224px;
+  left: 160px;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .productos-servicios {
+  top: 135px;
+  left: 100px;
+  width: 360px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+
+.container-3B .separador3 {
+  top: 160px;
+  left: 241px;
+  display: block;
+}
+
+.container-3B .separador4 {
+  top: 177px;
+  left: 234px;
+  display: block;
+}
+
+.container-3B .separador5 {
+  top: 194px;
+  left: 240px;
+  display: block;
+}
+
+.container-3B .tipo {
+  top: 38px;
+  left: 470px;
+  font-size: 2.7em;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+}
+
+.container-3B .tipo::after{
+content: "B";
+}
+
+.container-3B .codigo {
+  top: 99px;
+  left: 461px;
+  font-size: 0.5em;
+  font-weight: bold;  
+  display: block;
+}
+
+.container-3B .no {
+  top: 99px;
+  left: 495px;
+  font-size: 0.5em;
+  font-weight: bold;  
+  display: block;
+}
+
+.container-3B .fondo-tipo {
+  top: 44px;
+  left: 458px;
+  background-color: #BCBDC0;
+  width: 53px;
+  height: 50px;
+  border-radius: 7px;
+  display: block;
+}
+
+.container-3B .factura {
+  top: 36px;
+  left: 546px;
+  font-size: 1.5em;
+  display: block;
+}
+
+.container-3B .numero {
+  top: 88px;
+  left: 545px;
+  font-size: 1.55em;
+  display: block;
+}
+
+.container-3B .numero2 {
+  top: 88px;
+  left: 579px;
+  font-size: 1.55em;
+  display: block;
+}
+
+.container-3B .fecha {
+  top: 153px;
+  left: 546px;
+  font-size: 0.96em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .fecha2 {
+  top: 153px;
+  left: 602px;
+  font-size: 0.96em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .cuit {
+  top: 185px;
+  left: 545px;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .cuit2 {
+  top: 185px;
+  left: 593px;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .ingreso-bruto3 {
+  top: 199px;
+  left: 545px;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .ingreso-bruto2 {
+  top: 199px;
+  left: 654px;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .inicio-actividades {
+  top: 213px;
+  left: 545px;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .inicio-actividades2 {
+  top: 213px;
+  left: 605px;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .senores {
+  top: 261px;
+  left: 63px;
+  font-size: 0.66em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .senores2 {
+  top: 261px;
+  left: 112px;
+  font-size: 0.66em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .domicilio {
+  top: 292px;
+  left: 63px;
+  font-size: 0.66em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .domicilio2 {
+  top: 292px;
+  left: 118px;
+  font-size: 0.66em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .localidad3 {
+  top: 323px;
+  left: 63px;
+  font-size: 0.66em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .localidad4 {
+  top: 323px;
+  left: 118px;
+  font-size: 0.66em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .iva {
+  top: 261px;
+  left: 547px;
+  font-size: 0.66em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .iva::after{
+  /*content: ":";*/
+}
+
+.container-3B .iva2 {
+  top: 261px;
+  left: 579px;
+  font-size: 0.66em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .cuit3 {
+  top: 292px;
+  left: 547px;
+  font-size: 0.66em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .cuit4 {
+  top: 292px;
+  left: 591px;
+  font-size: 0.66em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .condiciones-venta {
+  top: 373px;
+  left: 62px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .condiciones-venta2 {
+  top: 373px;
+  left: 185px;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .vencimiento_ {
+  top: 373px;
+  left: 465px;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .vencimiento2_ {
+  top: 373px;
+  left: 548px;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .cantidad2 {
+  left: 72px;
+  top: 413px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-3B .descripcion2 {
+  left: 383px;
+  top: 413px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-3B .unitario2 {
+  left: 658px;
+  top: 413px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-3B .precio-total2 {
+  left: 788px;
+  top: 413px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-3B .tabla-encabezado {
+  background-color: #939598;
+  top: 405px;
+  left: 56px;
+  width: 810px;
+  height: 29px;
+  color: #fff;
+  display: block;
+  border-radius: 11px;
+}
+
+.container-3B .lista-productos {
+  top: 423px;
+  position: absolute;
+  left: 0px;
+  display: block;
+}
+
+.container-3B .tabla-texto {
+  top: 800px;
+  font-size: 0.63em;
+  font-weight: bold;
+  left: 64px;
+  width: 790px;
+  display: block;
+}
+
+.container-3B .subtotal {
+  top: 1070px;
+  left: 61px;
+  width: 99px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: none;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-3B .impuesto1 {
+  top: 1070px;
+  left: 369px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-3B .impuesto2 {
+  top: 1070px;
+  left: 481px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-3B .impuesto3 {
+  top: 1070px;
+  left: 592px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-3B .impuesto4 {
+  top: 1070px;
+  left: 488px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: none;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-3B .iva5 {
+  top: 1070px;
+  left: 595px;
+  width: 108px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: none;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-3B .total {
+  top: 1070px;
+  left: 709px;
+  width: 157px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-3B .subtotal2 {
+  top: 1096px;
+  left: 61px;
+  width: 99px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: none;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-3B .impuesto12 {
+  top: 1096px;
+  left: 369px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-3B .impuesto22 {
+  top: 1096px;
+  left: 481px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-3B .impuesto32 {
+  top: 1096px;
+  left: 592px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-3B .impuesto42 {
+  top: 1096px;
+  left: 488px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: none;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-3B .iva6 {
+  top: 1096px;
+  left: 595px;
+  width: 108px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: none;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-3B .total2 {
+  top: 1096px;
+  left: 709px;
+  width: 157px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-3B .razon-social-emite_ {
+  top: 1144px;
+  left: 56px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .razon-social-emite2 {
+  top: 1144px;
+  left: 274px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .exp-hab {
+  top: 1144px;
+  left: 355px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .exp-hab::before{
+  content: "- ";
+}
+
+.container-3B .exp-hab2 {
+  top: 1144px;
+  left: 435px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .del {
+  top: 1159px;
+  left: 56px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .del2 {
+  top: 1159px;
+  left: 78px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .al {
+  top: 1159px;
+  left: 162px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .al2 {
+  top: 1159px;
+  left: 175px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .fecha-impresion {
+  top: 373px;
+  left: 407px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .fecha-impresion::before{
+  content: "";
+}
+
+.container-3B .fecha-impresion2 {
+  top: 373px;
+  left: 525px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .reparto-frec {
+  top: 373px;
+  left: 670px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .reparto-frec::before{
+  content: "";
+}
+
+.container-3B .reparto-frec2 {
+  top: 373px;
+  left: 720px;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-3B .barcode {
+  top: 1150px;
+  left: 586px;
+  height: 45px;
+  overflow: hidden;
+  width: 284px;
+  display: block;
+}
+
+.container-3B .barcode img{
+  display: block;
+}
+
+.container-3B .barcode-number {
+  top: 1171px;
+  font-size: 0.6em;
+  left: 351px;
+  width: 276px;
+  text-align: center;
+  display: block;
+}
+
+.container-3B .vencimiento-cai3 {
+  top: 1167px;
+  left: 476px;
+  font-size: 0.70em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .vencimiento-cai2 {
+  top: 1171px;
+  left: 178px;
+  font-size: 1em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .cai {
+  top: 1149px;
+  left:470px;
+  font-size: 0.70em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .cai2 {
+  top: 1149px;
+  left: 503px;
+  font-size: 0.70em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-3B .marco1 {
+  top: 241px;
+  left: 56px;
+  border: 2px solid #939598;
+  border-left: none;
+  width: 478px;
+  height: 102px;
+  display: block;
+}
+
+.container-3B .marco2 {
+  top: 241px;
+  left: 536px;
+  border: 2px solid #939598;
+  border-left: none;
+  border-right: none;
+  width: 330px;
+  height: 102px;
+  display: block;
+}
+
+.container-3B .marco3 {
+  top: 398px;
+  left: 56px;
+  border: 2px solid #939598;
+  border-left: none;
+  border-right: none;
+  width: 810px;
+  height: 39px;
+  display: block;
+}
+
+.container-3B .marco4 {
+  top: 1060px;
+  left: 56px;
+  border: 2px solid #939598;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  width: 810px;
+  height: 39px;
+  display: block;
+}
+
+.container-3B #barcode_COD128 {
+  top: 1137px;
+  left: 599px;
+  display: block;
+}
+
+.container-3B #barcode_ITF {
+  top: 1135px;
+  left: 45px;
+  display: block;
+}
+
+.container-3B .leyenda-caba {
+  top: 1130px;
+  left: 65px;
+  font-size: 0.60em;
+  display: block;
+  z-index: 990;
+}
+
+
+.container-3B .numeros-letras {
+  text-align: right;
+  width: 460px;
+  top: 1131px;
+  left: 395px;
+  font-size: 0.57em;
+  display: block;
+  z-index: 999;
+}

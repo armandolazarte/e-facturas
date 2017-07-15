@@ -1,0 +1,825 @@
+body{
+font-family: 'Open Sans';
+}
+
+div, ul, span, img{
+position: absolute;
+display: none;
+}
+
+.container-2M .productos-servicios {
+  top: 60px;
+  left: 290px;
+  width: 213px;  
+  text-align: center;  
+  font-size: 1.1em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-2M{
+width: 908px;
+height: 1213px;
+/*background: url('../images/FACTURA_A_Pagina_1.jpg') no-repeat 0 0;*/
+background-size: 908px 1213px;
+position: relative;
+page-break-after: always;
+display: block;
+}
+
+.container-2M:last-child{
+page-break-after: auto;
+}
+
+.container-2M .marco1 {
+  border: 2px solid #221E1F;
+  top: 46px;
+  left: 50px;
+  width: 478px;
+  height: 158px;
+  display: block;
+}
+
+.container-2M .marco2 {
+  border: 2px solid #221E1F;
+  top: 46px;
+  left: 534px;
+  width: 326px;
+  height: 158px;
+  display: block;
+}
+
+.container-2M .marco3 {
+  border: 2px solid #221E1F;
+  top: 211px;
+  left: 50px;
+  width: 810px;
+  height: 108px;
+  display: block;
+}
+
+.container-2M .marco4 {
+  border: 2px solid #221E1F;
+  top: 328px;
+  left: 50px;
+  width: 810px;
+  height: 33px;
+  display: block;
+}
+
+.container-2M .marco5 {
+  border: 2px solid #221E1F;
+  top: 374px;
+  left: 50px;
+  width: 810px;
+  height: 29px;
+  display: block;
+}
+
+.container-2M .marco6 {
+  border: 2px solid #221E1F;
+  top: 439px;
+  left: 50px;
+  width: 810px;
+  height: 592px;
+  display: block;
+}
+
+.container-2M .marco7 {
+  border: 2px solid #221E1F;
+  top: 1109px;
+  left: 50px;
+  width: 810px;
+  height: 81px;
+  display: block;
+}
+
+.container-2M .logo{
+top: 70px;
+left: 90px;
+width: 150px;
+height: 110px;
+background: url('a.jpg') no-repeat 0 0;
+/*background-color: #efefef;*/
+display: block;
+}
+
+.container-2M .vertical-bar{
+top: 60px;
+left: 280px;
+height: 138px;
+width: 1px;
+border-left: 2px solid #221E1F;
+display: block;
+}
+
+.container-2M .direccion2{
+top: 108px;
+left: 306px;
+font-size: 0.7em;
+text-transform: uppercase;
+display: block;
+}
+
+.container-2M .cod-postal2 {
+font-size: 0.7em;
+top: 120px;
+left: 306px;
+display: block;
+}
+
+.container-2M .separador1 {
+font-size: 0.7em;
+top: 120px;
+left: 365px;
+display: block;
+}
+
+.container-2M .localidad2{
+font-size: 0.7em;
+top: 120px;
+left: 372px;
+text-transform: uppercase;
+display: block;
+}
+
+.container-2M .provincia2 {
+font-size: 0.7em;
+top: 132px;
+left: 306px;
+text-transform: uppercase;
+display: block;
+}
+
+.container-2M .telefono2 {
+font-size: 0.7em;
+top: 144px;
+left: 306px;
+display: block;
+}
+
+.container-2M .separador2 {
+font-size: 0.7em;
+top: 144px;
+left: 353px;
+display: block;
+}
+
+.container-2M .email2 {
+font-size: 0.7em;
+top: 190px;
+left: 306px;
+display: block;
+}
+
+.container-2M .url2 {
+font-size: 0.7em;
+top: 178px;
+left: 306px;
+display: block;
+}
+
+.container-2M .iva-responsable-inscripto {
+font-size: 0.7em;
+top: 160px;
+left: 306px;
+text-transform: uppercase;
+display: block;
+}
+
+
+.container-2M .fondo-tipo {
+border: 2px solid #221E1F;
+left: 534px;
+top: 46px;
+width: 46px;
+height: 57px;
+display: block;
+}
+
+
+.container-2M .codigo {
+left: 543px;
+top: 84px;
+font-size: 0.55em;
+display: block;
+}
+
+.container-2M .no {
+left: 550px;
+top: 93px;
+font-size: 0.55em;
+display: block;
+}
+
+.container-2M .factura {
+left: 593px;
+top: 57px;
+font-size: 1.2em;
+font-weight: bold;
+display: block;
+}
+
+.container-2M .numero {
+  left: 593px;
+  top: 87px;
+  font-size: 1.5em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-2M .numero2 {
+  left: 628px;
+  top: 87px;
+  font-size: 1.5em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-2M .fecha {
+  left: 594px;
+  top: 141px;
+  font-size: 0.8em;
+  display: block;
+}
+
+.container-2M .fecha2 {
+  left: 634px;
+  top: 141px;
+  font-size: 0.8em;
+  display: block;
+}
+
+.container-2M .cuit{
+  left: 595px;
+  top: 162px;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-2M .cuit2 {
+  left: 643px;
+  top: 162px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .ingreso-bruto {
+  left: 595px;
+  top: 174px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .ingreso-bruto2 {
+  left: 697px;
+  top: 174px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .inicio-actividades {
+  left: 595px;
+  top: 186px;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-2M .inicio-actividades2 {
+  left: 653px;
+  top: 186px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .senores {
+  left: 62px;
+  top: 225px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .senores2 {
+  left: 115px;
+  top: 225px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .domicilio {
+  left: 62px;
+  top: 259px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .domicilio2 {
+  left: 123px;
+  top: 259px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .condiciones-venta {
+  left: 62px;
+  top: 294px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .condiciones-venta2 {
+  left: 188px;
+  top: 294px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .cuit3 {
+  left: 592px;
+  top: 225px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .cuit4 {
+  left: 636px;
+  top: 225px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .localidad3 {
+  left: 592px;
+  top: 259px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .localidad4 {
+  left: 652px;
+  top: 259px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .iva {
+  left: 67px;
+  top: 340px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .iva3 {
+  left: 124px;
+  top: 340px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .iva2 {
+  left: 105px;
+  top: 340px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .condiciones-pago {
+  left: 56px;
+  top: 383px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .condiciones-pago2 {
+  left: 180px;
+  top: 383px;
+  font-size: 0.75em;
+  display: block;
+}
+
+.container-2M .cantidad {
+  left: 62px;
+  top: 415px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-2M .descripcion {
+  left: 368px;
+  top: 415px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-2M .unitario {
+  left: 669px;
+  top: 415px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-2M .precio-total {
+  left: 773px;
+  top: 415px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-2M .tabla-encabezado {
+  background-color: #221E1F;
+  top: 412px;
+  left: 50px;
+  width: 814px;
+  height: 22px;
+  color: #fff;
+  display: block;
+}
+
+.container-2M .lista-productos {
+  top: 423px;
+  position: absolute;
+  left: 0px;
+  display: block;
+}
+
+.container-2M .tabla-texto {
+  top: 800px;
+  font-size: 0.63em;
+  left: 60px;
+  width: 790px;
+  display: block;
+}
+
+.container-2M .subtotal {
+  top: 1041px;
+  left: 54px;
+  width: 95px;
+  font-size: 0.75em;
+  height: 20px;
+  border: 2px solid #221E1F;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .impuesto1 {
+  top: 1041px;
+  left: 158px;
+  width: 99px;
+  font-size: 0.75em;
+  height: 20px;
+  border: 2px solid #221E1F;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .impuesto2 {
+  top: 1041px;
+  left: 266px;
+  width: 99px;
+  font-size: 0.75em;
+  height: 20px;
+  border: 2px solid #221E1F;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .impuesto3 {
+  top: 1041px;
+  left: 373px;
+  width: 100px;
+  font-size: 0.75em;
+  height: 20px;
+  border: 2px solid #221E1F;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .impuesto4 {
+  top: 1041px;
+  left: 481px;
+  width: 100px;
+  font-size: 0.75em;
+  height: 20px;
+  border: 2px solid #221E1F;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .iva5 {
+  top: 1041px;
+  left: 589px;
+  width: 105px;
+  font-size: 0.75em;
+  height: 20px;
+  border: 2px solid #221E1F;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .total {
+  top: 1041px;
+  left: 703px;
+  width: 153px;
+  font-size: 0.75em;
+  height: 20px;
+  border: 2px solid #221E1F;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .subtotal2 {
+  top: 1067px;
+  left: 54px;
+  width: 95px;
+  font-size: 0.75em;
+  height: 24px;
+  border: 2px solid #221E1F;
+  padding-top: 6px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .impuesto12 {
+  top: 1067px;
+  left: 158px;
+  width: 99px;
+  font-size: 0.75em;
+  height: 24px;
+  border: 2px solid #221E1F;
+  padding-top: 6px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .impuesto22 {
+  top: 1067px;
+  left: 266px;
+  width: 99px;
+  font-size: 0.75em;
+  height: 24px;
+  border: 2px solid #221E1F;
+  padding-top: 6px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .impuesto32 {
+  top: 1067px;
+  left: 373px;
+  width: 100px;
+  font-size: 0.75em;
+  height: 24px;
+  border: 2px solid #221E1F;
+  padding-top: 6px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .impuesto42 {
+  top: 1067px;
+  left: 481px;
+  width: 100px;
+  font-size: 0.75em;
+  height: 24px;
+  border: 2px solid #221E1F;
+  padding-top: 6px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .iva6 {
+  top: 1067px;
+  left: 589px;
+  width: 105px;
+  font-size: 0.75em;
+  height: 24px;
+  border: 2px solid #221E1F;
+  padding-top: 6px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .total2 {
+  top: 1067px;
+  left: 703px;
+  width: 153px;
+  font-size: 0.75em;
+  height: 24px;
+  border: 2px solid #221E1F;
+  padding-top: 6px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .razon-social-emite_ {
+  top: 1118px;
+  left: 62px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .razon-social-emite2 {
+  top: 1118px;
+  left: 266px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .exp-hab {
+  top: 1135px;
+  left: 62px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .exp-hab2 {
+  top: 1135px;
+  left: 129px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .del {
+  top: 1152px;
+  left: 62px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .del2 {
+  top: 1152px;
+  left: 82px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .al {
+  top: 1152px;
+  left: 165px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .al2 {
+  top: 1152px;
+  left: 176px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .fecha-impresion {
+  top: 383px;
+  left: 405px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .fecha-impresion2 {
+  top: 383px;
+  left: 515px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .reparto-frec {
+  top: 383px;
+  left: 660px;
+  font-size: 0.7em;
+  display: block;
+}
+
+.container-2M .reparto-frec::before{
+  content: "";
+}
+
+.container-2M .reparto-frec2 {
+  top: 383px;
+  left: 707px;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-2M .orientacion-consumidor {
+  top: 1119px;
+  left: 359px;
+  font-size: 0.55em;
+  display: block;
+}
+
+.container-2M .barcode {
+  top: 1138px;
+  left: 358px;
+  height: 45px;
+  overflow: hidden;
+  width: 284px;
+  display: block;
+}
+
+.barcode img{
+  display: block;
+}
+
+.container-2M .barcode-number{
+  top: 1171px;
+  font-size: 0.6em;
+  left: 361px;
+  width: 276px;
+  text-align: center;
+  display: block;
+}
+
+.container-2M .vencimiento-cai {
+  top: 1160px;
+  left: 482px;
+  font-size: 0.65em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-2M .vencimiento-cai2 {
+  top: 1114px;
+  left: 761px;
+  font-size: 1em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-2M .cai {
+  top: 1142px;
+  left:476px;
+  font-size: 0.65em;
+  font-weight: bold;
+  display: block;
+  }
+
+.container-2M .cai2 {
+  top: 1142px;
+  left: 504px;
+  font-size: 0.65em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-2M #barcode_COD128 {
+  top: 1128px;
+  left: 587px;
+  display: block;
+}
+
+.container-2M #barcode_ITF {
+  top: 1128px;
+  left: 52px;
+  display: block;
+}
+
+
+.container-2M .leyenda-caba {
+  top: 1120px;
+  left: 300px;
+  font-size: 0.60em;
+  display: block;
+}
+
+
+
+.container-2M .tipo {
+left: 544px;
+top: 45px;
+font-size: 2em;
+font-weight: bold;
+display: block;
+}
+
+.container-2M .tipo::after{
+content: "M";
+}
+
+.container-2M .recuadroleyenda {
+font-size: 0.42em;
+text-align: center;
+//border: 2px solid #939598;
+//border: 2px solid #FFFFFF;
+left: 537px;
+top: 110px;
+width: 47px;
+height: 71px;
+display: block;
+}

@@ -1,0 +1,111 @@
+#modal {
+	width:100%; /*Toma el 100% del ancho de la página*/
+	height:100%; /*Toma el 100% del alto de la página*/
+	position:fixed; /*Con este código hacemos que el contenedor se mantenga en la pantalla y para que tome las dimensiones del body y no de la entrada*/
+	background-color: rgba(2, 2, 0, 0.4); /*Color de fondo, incluye opacidad del 90%*/
+	top:0; /*Position superior*/
+	left:0; /*Posición lateral*/
+	z-index:9999; /*Evitamos que algún elemento sobreponga la ventana modal*/
+}
+
+
+#contenido-interno { 
+/* 	margin:20%;*/
+	left: 10%;
+	top: 20%;
+  	bottom:50%;
+	width:80%;
+	height:43%; 
+  	overflow-y:scroll;
+	font: 14px arial;
+	text-align:center;
+	color:#9b534f; 
+	background:#f9f8ec; 
+	border-style : solid;
+	border-width : 3px 3px 3px 3px;
+  	border-color : #000000;
+  	border-radius: 7px 7px 7px 7px ;
+}
+
+
+
+#modalBarraProgreso {
+	width:100%; /*Toma el 100% del ancho de la página*/
+	height:100%; /*Toma el 100% del alto de la página*/
+	position:fixed; /*Con este código hacemos que el contenedor se mantenga en la pantalla y para que tome las dimensiones del body y no de la entrada*/
+	background-color: rgba(0, 0, 0, 0.7); /*Color de fondo, incluye opacidad del 90%*/
+	top:0; /*Position superior*/
+	left:0; /*Posición lateral*/
+	z-index:9999; /*Evitamos que algún elemento sobreponga la ventana modal*/
+}
+
+
+#barraArriba { 
+	left: 25%;
+	top: 200px;
+  	height:18px;
+	width:10px; 
+	font: 30px consolas;
+/* 	text-align: center; */
+	vertical-align: middle;
+	color:#000000; 
+	background:#f3f3f3; 
+/* 	border-style : solid; */
+/* 	border-width : 2px 2px 2px 2px; */
+/*   	border-color : #000000; */
+/*   	border-radius: 14px 14px 14px 14px; */
+}
+
+#barraAbajo { 
+/* 	margin:20%;*/
+	left: 25%;
+	top: 218px;
+/*   	bottom:45%; */
+  	height:18px;
+	width:10px; 
+	font: 30px consolas;
+/* 	text-align: center; */
+/* 	vertical-align: middle; */
+	color:#000000; 
+	background:#f3f3f3; 
+/* 	border-style : solid; */
+/* 	border-width : 2px 2px 2px 2px; */
+/*   	border-color : #000000; */
+/*   	border-radius: 14px 14px 14px 14px; */
+}
+
+#contadorPorcentaje { 
+/* 	margin:20%;*/
+	left: 25%;
+	top: 200px;
+/*   	bottom:50%; */
+  	height:36px;
+	width:50%; 
+	font: 30px consolas;
+	text-align: center;
+	vertical-align: middle;
+	color:#000000; 
+	background: rgba(1, 1, 1, 0.1); 
+/* 	border-style : solid; */
+/* 	border-width : 1px 1px 1px 1px; */
+/*   	border-color : #000000; */
+/*   	border-radius: 14px 14px 14px 14px; */
+}
+
+#facturas { 
+/* 	margin:20%;*/
+	left: 25%;
+	top: 250px;
+/*   	bottom:50%; */
+  	height:200px;
+	width:50%; 
+	font: 25px consolas;
+	text-align: center;
+	vertical-align: middle;
+	color: rgba(100, 100, 100, 0.5); 
+/* 	background: rgba(1, 1, 1, 0.1);  */
+/* 	border-style : solid; */
+/* 	border-width : 1px 1px 1px 1px; */
+/*   	border-color : #000000; */
+/*   	border-radius: 14px 14px 14px 14px; */
+}

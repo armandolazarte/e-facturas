@@ -1,0 +1,15 @@
+Message-ID: <b46764f46fc9f9b22fade76e280259f9@localhost>
+Date: Wed, 08 Apr 2015 13:11:17 +0200
+Subject: Confirm account for My Application
+From: My Application robot <soporte@airtech-it.com.ar>
+To: aguidi@airtech-it.com.ar
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello aguidi,
+
+Follow the link below to confirm your acount:
+
+http://localhost:8080/feweb/frontend/web/index.php?r=3Dsite%2Fconfirm-acoun=
+t&token=3DCzIdAlAGIbRvnP_R2M_mw5B2Ev5nfSfv_1428491477

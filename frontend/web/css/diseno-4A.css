@@ -1,0 +1,858 @@
+body{
+font-family: 'Open Sans';
+}
+
+div, ul, span, img{
+position: absolute;
+display: none;
+}
+
+.container-4A{
+width: 908px;
+height: 1213px;
+/*background: url('../images/FACTURA_A_Pagina_3.jpg') no-repeat 0 0;*/
+background-size: 908px 1213px;
+position: relative;
+page-break-after: always;
+display: block;
+color: #221E1F;
+}
+
+.container-4A:last-child{
+page-break-after: auto;
+}
+
+.container-4A .logo {
+  top: 30px;
+  left: 70px;
+  width: 185px;
+  height: 95px;
+  background: url('a.jpg') no-repeat 0 0;
+  /*background-color: #efefef;*/
+  display: block;
+}
+
+.container-4A .direccion {
+  top: 154px;
+  left: 58px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .direccion::after, .container-4A .cod-postal::after, 
+.container-4A .telefono::after, .container-4A .email::after, .container-4A .localidad::after{
+  content: ":";
+}
+
+.container-4A .direccion2 {
+  top: 154px;
+  left: 125px;
+  width: 370px;
+  font-size: 0.78em;
+  font-weight: normal;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-4A .localidad {
+  top: 177px;
+  left: 58px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .localidad2 {
+  top: 177px;
+  left: 128px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+
+.container-4A .cod-postal {
+  top: 200px;
+  left: 58px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .cod-postal2 {
+  top: 200px;
+  left: 133px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .telefono {
+  top: 222px;
+  left: 58px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .telefono2 {
+  top: 222px;
+  left: 118px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .email {
+  top: 242px;
+  left: 58px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .email2 {
+  top: 242px;
+  left: 103px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .iva-responsable-inscripto{
+  top: 242px;
+  left: 519px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .productos-servicios {
+  top: 127px;
+  left: 58px;
+  width: 360px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+}
+
+.container-4A .tipo {
+  top: 43px;
+  left: 434px;
+  font-size: 2.6em;
+  font-weight: bold;
+  color: #808285;
+  display: block;
+}
+
+.container-4A .tipo::after{
+content: "A";
+}
+
+.container-4A .codigo {
+  top: 101px;
+  left: 422px;
+  font-size: 0.58em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .no {
+  top: 101px;
+  left: 461px;
+  font-size: 0.58em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .fondo-tipo {
+  top: 47px;
+  left: 422px;
+  border: 2px solid #939598;
+  width: 50px;
+  height: 47px;
+  border-radius: 7px;
+  display: block;
+}
+
+.container-4A .factura {
+  top: 47px;
+  left: 516px;
+  font-size: 1.5em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .numero {
+  top: 98px;
+  left: 516px;
+  font-size: 1.55em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .numero2 {
+  top: 98px;
+  left: 554px;
+  font-size: 1.55em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .fecha {
+  top: 149px;
+  left: 519px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-4A .fecha2 {
+  top: 149px;
+  left: 564px;
+  font-size: 0.75em;
+  font-weight: normal;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-4A .cuit {
+  top: 178px;
+  left: 519px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-4A .cuit2 {
+  top: 178px;
+  left: 570px;
+  font-size: 0.75em;
+  font-weight: normal;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-4A .ingreso-bruto3 {
+  top: 199px;
+  left: 519px;
+  font-size: 0.75em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .ingreso-bruto2 {
+  top: 199px;
+  left: 619px;
+  font-size: 0.75em;
+  font-weight: normal;
+  display: block;
+}
+
+
+.container-4A .inicio-actividades {
+  top: 221px;
+  left: 519px;
+  font-size: 0.75em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .inicio-actividades2 {
+  top: 221px;
+  left: 577px;
+  font-size: 0.75em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .senores {
+  top: 288px;
+  left: 59px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .senores2 {
+  top: 288px;
+  left: 117px;
+  width: 370px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .domicilio {
+  top: 318px;
+  left: 59px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .domicilio2 {
+  top: 318px;
+  left: 124px;
+  width: 370px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .localidad3 {
+  top: 348px;
+  left: 59px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .localidad4 {
+  top: 348px;
+  left: 125px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .iva {
+  top: 374px;
+  left: 59px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .iva::after{
+ /*content: ":";*/
+}
+
+.container-4A .iva2 {
+  top: 374px;
+  left: 97px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .cliente-codigo {
+  top: 288px;
+  left: 522px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .cliente-codigo2 {
+  top: 288px;
+  left: 619px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .cuit3 {
+  top: 320px;
+  left: 522px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .cuit4 {
+  top: 320px;
+  left: 573px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .ingreso-bruto4 {
+  top: 360px;
+  left: 522px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .ingreso-bruto5 {
+  top: 360px;
+  left: 627px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .condiciones-venta {
+  top: 410px;
+  left: 58px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .condiciones-venta2 {
+  top: 410px;
+  left: 187px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .fecha-entrega_ {
+  top: 410px;
+  left: 406px;
+  font-size: 0.78em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .fecha-entrega2_ {
+  top: 410px;
+  left: 520px;
+  font-size: 0.78em;
+  font-weight: normal;
+  display: block;
+}
+
+.container-4A .reparto-frec_ {
+  top: 410px;
+  left: 650px;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .reparto-frec::before{
+  content: "";
+}
+
+.container-4A .reparto-frec2 {
+  top: 410px;
+  left: 673px;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.container-4A .cantidad2 {
+  left: 72px;
+  top: 450px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-4A .descripcion2 {
+  left: 373px;
+  top: 450px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-4A .unitario2 {
+  left: 658px;
+  top: 450px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-4A .precio-total2 {
+  left: 788px;
+  top: 450px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #fff;
+  display: block;
+}
+
+.container-4A .tabla-encabezado {
+  background-color: #939598;
+  top: 444px;
+  left: 49px;
+  width: 820px;
+  height: 29px;
+  color: #fff;
+  display: block;
+  border-radius: 11px;
+}
+
+.container-4A .lista-productos {
+  top: 465px;
+  position: absolute;
+  left: 0px;
+  display: block;
+}
+
+.container-4A .tabla-texto {
+  top: 800px;
+  font-size: 0.63em;
+  left: 64px;
+  width: 790px;
+  display: block;
+}
+
+.container-4A .subtotal {
+  top: 1060px;
+  left: 51px;
+  width: 99px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-4A .impuesto1 {
+  top: 1060px;
+  left: 155px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-4A .impuesto2 {
+  top: 1060px;
+  left: 263px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-4A .impuesto3 {
+  top: 1060px;
+  left: 369px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-4A .impuesto4 {
+  top: 1060px;
+  left: 478px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-4A .iva5 {
+  top: 1060px;
+  left: 585px;
+  width: 108px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-4A .total {
+  top: 1060px;
+  left: 699px;
+  width: 157px;
+  font-size: 0.75em;
+  height: 22px;
+  background-color: #939598;
+  padding-top: 1px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #fff;
+}
+
+.container-4A .subtotal2 {
+  top: 1086px;
+  left: 51px;
+  width: 99px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-4A .impuesto12 {
+  top: 1086px;
+  left: 155px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-4A .impuesto22 {
+  top: 1086px;
+  left: 263px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-4A .impuesto32 {
+  top: 1086px;
+  left: 369px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-4A .impuesto42 {
+  top: 1086px;
+  left: 478px;
+  width: 102px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-4A .iva6 {
+  top: 1086px;
+  left: 585px;
+  width: 108px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-4A .total2 {
+  top: 1086px;
+  left: 699px;
+  width: 157px;
+  font-size: 0.75em;
+  height: 24px;
+  background-color: #BCBDC0;
+  padding-top: 9px;
+  text-align: center;
+  display: block;
+  border-radius: 11px;
+  color: #000;
+  font-weight: bold;
+}
+
+.container-4A .cai {
+  top: 1149px;
+  left: 468px;
+  font-size: 0.70em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .cai2 {
+  top: 1149px;
+  left: 499px;
+  font-size: 0.70em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .vencimiento-cai4 {
+  top: 1168px;
+  left: 475px;
+  font-size: 0.70em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .vencimiento-cai2 {
+  top: 1172px;
+  left: 113px;
+  font-size: 0.77em;
+  font-weight: bold;
+  display: block;
+}
+
+.container-4A .barcode img{
+  display: block;
+}
+
+.container-4A .barcode-number {
+  top: 1172px;
+  font-size: 0.65em;
+  font-weight: bold;
+  left: 585px;
+  width: 276px;
+  text-align: center;
+  display: block;
+}
+
+.container-4A .barcode {
+  top: 1145px;
+  left: 563px;
+  height: 45px;
+  overflow: hidden;
+  width: 320px;
+  display: block;
+}
+
+
+.container-4A #barcode_COD128 {
+  top: 1137px;
+  left: 595px;
+  display: block;
+}
+
+.container-4A #barcode_ITF {
+  top: 1135px;
+  left: 38px;
+  display: block;
+}
+
+
+
+.container-4A .vertical-bar {
+  border-left: 2px solid #939598;
+  top: 118px;
+  left: 447px;
+  height: 151px;
+  width: 2px;
+  display: block;
+}
+
+.container-4A .marco1 {
+  top: 269px;
+  left: 49px;
+  border: 2px solid #939598;
+  border-left: none;
+  width: 452px;
+  height: 124px;
+  display: block;
+}
+
+.container-4A .marco2 {
+  top: 269px;
+  left: 503px;
+  border: 2px solid #939598;
+  border-left: none;
+  border-right: none;
+  width: 365px;
+  height: 124px;
+  display: block;
+}
+
+.container-4A .marco3 {
+  top: 439px;
+  left: 49px;
+  border: 2px solid #939598;
+  border-left: none;
+  border-right: none;
+  width: 820px;
+  height: 37px;
+  display: block;
+}
+
+.container-4A .marco4 {
+  top: 1054px;
+  left: 44px;
+  border: 2px solid #939598;
+  border-left: none;
+  border-right: none;
+  width: 820px;
+  height: 67px;
+  display: block;
+}
+
+.container-4A .marco5 {
+  top: 1199px;
+  left: 44px;
+  border: 2px solid #939598;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  width: 820px;
+  height: 77px;
+  display: block;
+  z-index: 999;
+}
+
+.container-4A .leyenda-caba_ {
+  top: 1130px;
+  left: 300px;
+  font-size: 0.60em;
+  display: block;
+}
+
+.container-4A .numeros-letras {
+  text-align: right;
+  width: 750px;
+  top: 1127px;
+  left: 65px;
+  font-size: 0.70em;
+  display: block;
+  z-index: 999;
+}
