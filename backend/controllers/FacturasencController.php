@@ -846,9 +846,10 @@ class FacturasencController extends Controller
         
 
         //$modelo = ModeloFacturas::find()->where(['empresaid'=>$empresa->empresaid])->andWhere(['puntoventaid'=>$model->puntoventa])->one();
-
+        print_r($modelo);
+        exit();
     	$modelo= null;
-        
+
     	$pv = PuntosventaSearch::getPuntoVentaEmpresaById($model->puntoventa);
 
     	
