@@ -854,7 +854,6 @@ class FacturasencController extends Controller
             array('modeloid' => '1','puntoventaid' => '29','empresaid' => '41','file' => 'uploads/41_0002.jpg','modelo' => '3')
             );
 
-        exit();
 
     	$pv = PuntosventaSearch::getPuntoVentaEmpresaById($model->puntoventa);
 
