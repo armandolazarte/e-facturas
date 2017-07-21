@@ -16,7 +16,10 @@ use yii\helpers\Url;
 
 //se arma la ruta del logo empresa 
 //$url_logo_empresa = Url::base('http') . '/' . $modelo->file;
+
+
 $m = '_modelo_' . $modelo->modelo . '.';
+
 $archivo = str_replace('.', $m, $modelo->file);
 $url_logo_empresa = Url::base('http') . '/' . $archivo;
 
