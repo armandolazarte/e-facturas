@@ -6,8 +6,8 @@ namespace backend\models;
 use backend\models\User;
 use backend\models\ModeloFacturas;
 use backend\models\PuntosventaSearch;
-use yii\base\Model;
 use Yii;
+use yii\base\Model;
 use yii\web\UploadedFile;
 use yii\helpers\FileHelper;
 
@@ -239,9 +239,11 @@ class ModeloFactura extends Model
      */
     public static function getModeloFactura($EMPRESA_ID)
     {
-    	// revisamos si existe la empresa en la tabla ModeloFactura
-    	$modelo = ModeloFacturas::find()->where(['empresaid'=>$EMPRESA_ID])->one();
-    	if ($modelo) {
+    	// revisamos si existe la empresa en la tabla ModeloFactu
+	
+	$modelo = ModeloFacturas::find()->where(['empresaid'=>$EMPRESA_ID])->one();
+    	
+	if ($modelo) {
     		return $modelo;
     	}
     	 
