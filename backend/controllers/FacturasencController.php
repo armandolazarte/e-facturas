@@ -817,7 +817,7 @@ class FacturasencController extends Controller
         if(strlen($key) == 64) {
             //echo "e-facturas.com.ar/index.php?r=facturasenc%2Fview&id=$id&key=$key";
             //exit;
-            return $this->redirect("http://e-facturas.com.ar:85/index.php?r=facturasenc%2Fview&id=$id&key=$key");
+            return $this->redirect("http://e-facturas.com.ar/index.php?r=facturasenc%2Fview&id=$id&key=$key");
             
         }
 
