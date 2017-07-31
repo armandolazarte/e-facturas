@@ -30,7 +30,7 @@ $number = new Numbers();
 
 
 // se obtiene el CODIGO DE BARRAS
-$fecha_barcode = str_replace('-', '', explode(' ', $model->fechafactura)[0]); 
+$fecha_barcode = str_replace('-', '', explode(' ', $pie->caevencimiento)[0]); 
 $comprobante_fe = substr($comprobante->codigo, 1);
 
 $BARCODE_PHP = Barcode::getCode(

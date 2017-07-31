@@ -50,7 +50,7 @@ foreach ($imprimir as $key) {
 
 
 // se obtiene el CODIGO DE BARRAS
-$fecha_barcode = str_replace('-', '', explode(' ', $key['fechafactura'])[0]); 
+$fecha_barcode = str_replace('-', '', explode(' ', $key['caevencimiento'])[0]); 
 $comprobante_fe = substr($key['comprobantecodigo'], 1);
 
 $BARCODE_PHP = Barcode::getCode(
