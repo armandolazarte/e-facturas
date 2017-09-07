@@ -95,7 +95,7 @@ class Email
 
 			$ReplyTo = (isset($arrayEmailsReplyTo[0])) ? $arrayEmailsReplyTo[0] : 'no-reply@notificacion-fe.com' ;
 
-			$API_KEY = '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';
+			$API_KEY = '';
 			
 			$FROM_EMAIL = $ReplyTo; //'no-reply@fe.com';
 
