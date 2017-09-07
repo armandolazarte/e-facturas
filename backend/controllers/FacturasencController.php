@@ -269,6 +269,8 @@ class FacturasencController extends Controller
     	
     	Yii::$app->session->set('MensajeNotificacionFactura', '');
     	Yii::$app->session->set('QueryFacturaSelect', []);
+
+
     	
         if ($id != -1 || count($pk_facturas) == 1) {
         	
