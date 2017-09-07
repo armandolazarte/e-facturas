@@ -95,8 +95,9 @@ class Email
 		//$email = 'rdevicenzi@gmail.com';
 
 		$APIKEY = ApiKey::getApiKey();
+		$APIKEY_ACTIVO = (isset($APIKEY->activo)) ? $APIKEY->activo : 'NO';		
 
-		if ($modo_envio_fe == 'SI' && $APIKEY->activo == 'SI') {
+		if ($modo_envio_fe == 'SI' && $APIKEY_ACTIVO == 'SI') {
 
 			$ReplyTo = (isset($arrayEmailsReplyTo[0])) ? $arrayEmailsReplyTo[0] : 'no-reply@notificacion-fe.com' ;
 
