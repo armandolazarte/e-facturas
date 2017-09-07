@@ -27,6 +27,7 @@ use backend\models\EmpresasAdmin;
 use backend\models\MensajesNotificacionFacturas;
 use backend\models\FacturasMensajesNotificacion;
 use backend\models\ConfigNotificacionFactura;
+use backend\models\EmpresaEnvioFe;
 use frontend\models\Facturasenc;
 use frontend\models\Facturastributo;
 use frontend\models\Facturasiva;
@@ -80,6 +81,7 @@ class FacturasencController extends Controller
     	VistasAudita::saveVistaAudita('Mis facturas');
     	
     	ConfigNotificacionFactura::createConfigEmpresaDefault();
+        EmpresaEnvioFe::createConfigEmpresaDefault();
     	
         $comprobantes = Tipocomprobantefe::find()->all();
        
@@ -230,6 +232,10 @@ class FacturasencController extends Controller
     	$EMPRESA_ID = Yii::$app->user->identity->empresaid;
 
         $arrayEmailsReplyTo = MailsSearch::getSingleArrayMailsByEmpresa($EMPRESA_ID);
+
+        $CONFIG_empresa_envio_fe = EmpresaEnvioFe::getConfigEmpresa();
+
+        $modo_envio_fe = isset($CONFIG_empresa_envio_fe->status) ? $CONFIG_empresa_envio_fe->status : 'NO' ;
     	
         /*--------------------------------------------------------------------------*/
         /*--------------            PROVISORIO                             ---------*/
@@ -263,6 +269,8 @@ class FacturasencController extends Controller
     	
     	Yii::$app->session->set('MensajeNotificacionFactura', '');
     	Yii::$app->session->set('QueryFacturaSelect', []);
+
+
     	
         if ($id != -1 || count($pk_facturas) == 1) {
         	
@@ -405,7 +413,8 @@ class FacturasencController extends Controller
 		            Email::sendMultipleWithTransport($EMAIL_EMPRESA->nombre, $email, 'Nueva Factura', $body, $arrayMails, $EMAIL_EMPRESA->email, $EMAIL_EMPRESA->password, $EMAIL_EMPRESA->servidor_smpt, $EMAIL_EMPRESA->puerto_smpt, $arrayEmailsReplyTo);
 	            }
 	            else {
-		            Email::sendMultiple($EMPRESA, $email, 'Nueva Factura', $body, $arrayMails, $arrayEmailsReplyTo);
+		            Email::sendMultiple($EMPRESA, $email, 'Nueva Factura', $body, $arrayMails, 
+                        $arrayEmailsReplyTo, $modo_envio_fe);
 	            }
 
 	            MensajesNotificacionFacturas::saveMensaje($id, $mensaje_notificacion);
@@ -592,7 +601,8 @@ class FacturasencController extends Controller
                 			Email::sendMultipleWithTransport($EMAIL_EMPRESA->nombre, $email, 'Nueva Factura', $body, $arrayMails, $EMAIL_EMPRESA->email, $EMAIL_EMPRESA->password, $EMAIL_EMPRESA->servidor_smpt, $EMAIL_EMPRESA->puerto_smpt, $arrayEmailsReplyTo);
                         }
                 		else {
-                			Email::sendMultiple($EMPRESA, $email, 'Nueva Factura', $body, $arrayMails, $arrayEmailsReplyTo);
+                			Email::sendMultiple($EMPRESA, $email, 'Nueva Factura', $body, $arrayMails, 
+                                $arrayEmailsReplyTo, $modo_envio_fe);
                 		}                		
                 		
                 		MensajesNotificacionFacturas::saveMensaje($key->facturaid, $mensaje_notificacion);
@@ -817,7 +827,7 @@ class FacturasencController extends Controller
         if(strlen($key) == 64) {
             //echo "e-facturas.com.ar/index.php?r=facturasenc%2Fview&id=$id&key=$key";
             //exit;
-            return $this->redirect("http://e-facturas.com.ar:85/index.php?r=facturasenc%2Fview&id=$id&key=$key");
+            return $this->redirect("http://e-facturas.com.ar/index.php?r=facturasenc%2Fview&id=$id&key=$key");
             
         }
 

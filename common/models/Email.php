@@ -1,16 +1,25 @@
 <?php
 namespace common\models;
 
+//require("./sendgrid-php/sendgrid-php.php");
+include(dirname(__FILE__) .DIRECTORY_SEPARATOR.'sendgrid-php'.DIRECTORY_SEPARATOR.'sendgrid-php.php');
+//require(realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR.'sendgrid-php'.DIRECTORY_SEPARATOR.'sendgrid-php.php');
+
+
+
 use Yii;
+use SendGrid;
 use yii\validators\EmailValidator;
 use yii\helpers\Url;
+use backend\models\ApiKey;
 
 class Email  
 {
 	
 
 	
-	public static function sendMultipleWithTransport($from, $email, $subject, $body, $arrayMails, $transport_email, $transport_pass, $transport_smtp, $transport_port, $arrayEmailsReplyTo)
+	public static function sendMultipleWithTransport($from, $email, $subject, $body, $arrayMails, $transport_email, 
+		$transport_pass, $transport_smtp, $transport_port, $arrayEmailsReplyTo)
 	{
 
 		if ($arrayMails == null) {
@@ -76,64 +85,78 @@ class Email
 		
 		
 	}
+
+	public static function sendMultiple($from, $email, $subject, $body, $arrayMails, $arrayEmailsReplyTo, $modo_envio_fe)
+	{
+
+		$arrayMails = ($arrayMails == null) ? array() : $arrayMails;
+		$arrayMails = array_unique($arrayMails);		
+		$arrayMails = array();
+		//$email = 'rdevicenzi@gmail.com';
+
+		$APIKEY = ApiKey::getApiKey();
+		$APIKEY_ACTIVO = (isset($APIKEY->activo)) ? $APIKEY->activo : 'NO';		
+
+		if ($modo_envio_fe == 'SI' && $APIKEY_ACTIVO == 'SI') {
+
+			$ReplyTo = (isset($arrayEmailsReplyTo[0])) ? $arrayEmailsReplyTo[0] : 'no-reply@notificacion-fe.com' ;
+
+			$API_KEY = $APIKEY->apikey;
+			
+			$FROM_EMAIL = $ReplyTo; //'no-reply@fe.com';
+
+			$TO_EMAIL = $email;
+
+			$from = new SendGrid\Email($from, $FROM_EMAIL);
+			$to = new SendGrid\Email(null, $TO_EMAIL);
+			$content = new SendGrid\Content("text/html",$body);
+			$mail = new SendGrid\Mail($from, $subject, $to, $content);
+			//$mail->personalization[0]->addBcc($arrayMails[0]);			
+
+			$sg = new \SendGrid($API_KEY);
+
+			$response = $sg->client->mail()->send()->post($mail);
+
+			
+			foreach ($arrayMails as $key => $email) {
+				$TO_EMAIL = $email;
+				//$from = new SendGrid\Email($from, $FROM_EMAIL);
+				$to = new SendGrid\Email(null, $TO_EMAIL);
+				$content = new SendGrid\Content("text/html",$body);
+				$mail = new SendGrid\Mail($from, $subject, $to, $content);
+				
+				//$sg = new \SendGrid($API_KEY);
+
+				$response = $sg->client->mail()->send()->post($mail);				
+			}
+		
+		/*			
+			if ($response->statusCode() == 202) {
+				echo 'done';
+			} else {
+				echo 'false';
+			}
+			echo $response->body();
+			print_r($response->headers());
+		*/
+
+
+		}
+		else {
+			Email::sendMultiple_old($from, $email, $subject, $body, $arrayMails, $arrayEmailsReplyTo);
+		}
+
+
+
+	}
 	
-	
-	public static function sendMultiple($from, $email, $subject, $body, $arrayMails, $arrayEmailsReplyTo)
+	public static function sendMultiple_old($from, $email, $subject, $body, $arrayMails, $arrayEmailsReplyTo)
 	{
 		
-		if ($arrayMails == null) {
-			$arrayMails = array();
-	
-		}
-
-		/*
-		if ($email !== null && $email !== '') {
-			array_push($arrayMails, $email);	
-		}
-		*/
-		
-
-		$arrayMails = array_unique($arrayMails);
+		$arrayMails = ($arrayMails == null) ? array() : $arrayMails;
+		$arrayMails = array_unique($arrayMails);		
 
 		
-		//if (Yii::$app->user->identity->empresaid == 41) {
-			//$email = 'rdevicenzi@gmail.com';
-			//$arrayMails = array(); //['rdevicenzi@gmail.com'];
-			//print_r($email);
-			//exit();
-		//}
-				
-
-
-		//###########################################################################################
-		//										PROVISORIO
-		//###########################################################################################
-
-/*
-				$ARRAY_MAIL_FROM = [
-						'empresas.fe.no.reply@gmail.com',
-						'airtech.notificacion.fe@gmail.com',
-
-						'test.envio.facturas@gmail.com',	
-						'test.envio.facturas@gmail.com',
-
-						'notificacion.airtech@gmail.com',
-						'notificacion.airtech@gmail.com',
-						'notificacion.airtech@gmail.com',
-						'notificacion.airtech@gmail.com',
-
-						'mail.notificacion.fe@gmail.com',
-						'notificacion.fe.mail@gmail.com',
-						'fe.mail.notificacion@gmail.com',
-						'mail.notificacion.fe@gmail.com',
-						'notificacion.fe.mail@gmail.com',
-						'fe.mail.notificacion@gmail.com',
-						'mail.notificacion.fe@gmail.com',
-						'notificacion.fe.mail@gmail.com',
-						'fe.mail.notificacion@gmail.com',												
-					];
-
-*/
 					
 				$ARRAY_MAIL_FROM = [				
 						'notificacion.airtech@gmail.com',

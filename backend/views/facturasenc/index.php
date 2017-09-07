@@ -463,7 +463,7 @@ echo Html::a('<span class="glyphicon glyphicon-envelope"></span> NOTIFICAR SIN M
 			  <p style="font-size:15px" >
 			  Ahora el receptor puede <b>responder la notificaci&oacute;n</b> de su factura. 
 			  Las respuestas ser&aacute;n enviadas a las correos registrados en 
-			  <a href="http://empresas.e-facturas.com.ar:85/index.php?r=mails" target="_blank" style="text-decoration:none; "><b>Configuraci&oacute;n > Emails</b>
+			  <a href="http://empresas.e-facturas.com.ar/index.php?r=mails" target="_blank" style="text-decoration:none; "><b>Configuraci&oacute;n > Emails</b>
 			  </a>
 			  <br><p>
 			  </p>
