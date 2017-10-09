@@ -482,40 +482,40 @@ class FacturasencController extends Controller
                 	$nombre = '';
                 	$email = '';
                 	$arrayMails = NULL;
-                	
-                	// se busca el receptor de la factura
-                	$receptor = Receptores::find()->where(['receptorid'=>$factura->receptorid])->one();
-                	
-                	if ($receptor->documentoid !== 99 && strlen($receptor->cuit) >= 8 && ctype_digit($receptor->cuit)) {
-                	
-                		// emails del receptor
-                		$arrayMails = Receptoresemails::getArrayMailsByReceptorId($receptor->receptorid);
-                		 
-                		// se busca el usuario segun su cuit
-                		$user = User::find()->where(['cuit'=>$receptor->cuit])->one();
-                		if ($user) {
-                			$nombre = $user->username;
-                			$email = $user->email;
-                		}
-                		// si el usuario no esta registrado o falta un dato
-                		// se busca en receptores
-                		if ($nombre == '')
-                			$nombre = $receptor->nombre;
-                		if (!Email::validate($email))
-                			$email = $receptor->mail;
-                		 
-                	}
-                	
-                	// si aun falta algun dato se obtiene de la factura
-                	if ($nombre == '')
-                		$nombre = $factura->nombre;
-                	
-                	if (!Email::validate($email))
-                		$email = $factura->email;
-                	
 
-                	$comprobante = Tipocomprobantefe::find()->where(['comprobanteid'=>$factura->comprobanteid])->one();
-                	$COMPROBANTE = str_replace('FACTURAS', 'FACTURA', $comprobante->descripcion);
+            // se busca el receptor de la factura
+            $receptor = Receptores::find()->where(['receptorid'=>$factura->receptorid])->one();
+
+            $receptor->receptorid = ($receptor->receptorid !== null) ? $receptor->receptorid : -1 ;
+
+
+            // emails del receptor
+            $arrayMails = Receptoresemails::getArrayMailsByReceptorId($receptor->receptorid);
+                
+                
+                // si el usuario no esta registrado o falta un dato
+                // se busca en receptores
+            if ($nombre == '')
+                $nombre = $receptor->nombre;
+            if (!Email::validate($email))
+                $email = $receptor->mail;
+            
+
+            // si aun falta algun dato se obtiene de la factura
+            if ($nombre == '')
+                $nombre = $factura->nombre;
+            
+            if (!Email::validate($email))
+                $email = $factura->email;
+           
+            $comprobante = Tipocomprobantefe::find()->where(['comprobanteid'=>$factura->comprobanteid])->one();
+            $COMPROBANTE = str_replace('FACTURAS', 'FACTURA', $comprobante->descripcion);
+
+
+
+
+
+
 
 
                     // ============================== Correccion Emails Receptor  ===================================================
@@ -601,8 +601,7 @@ class FacturasencController extends Controller
                 			Email::sendMultipleWithTransport($EMAIL_EMPRESA->nombre, $email, 'Nueva Factura', $body, $arrayMails, $EMAIL_EMPRESA->email, $EMAIL_EMPRESA->password, $EMAIL_EMPRESA->servidor_smpt, $EMAIL_EMPRESA->puerto_smpt, $arrayEmailsReplyTo);
                         }
                 		else {
-                			Email::sendMultiple($EMPRESA, $email, 'Nueva Factura', $body, $arrayMails, 
-                                $arrayEmailsReplyTo, $modo_envio_fe);
+                			Email::sendMultiple($EMPRESA, $email, 'Nueva Factura', $body, $arrayMails, $arrayEmailsReplyTo, $modo_envio_fe);
                 		}                		
                 		
                 		MensajesNotificacionFacturas::saveMensaje($key->facturaid, $mensaje_notificacion);
