@@ -185,10 +185,13 @@ class FacturasencController extends Controller
     	// si la key es un hash sha256 ...
     	if ($key) {
     		$view = FacturasVistaPublica::find()->where(['key'=>$key])->one();
+		//print_r($view);
+		//exit();
     		// si la key existe en la tabla FacturasVistaPublica
     		// comprueba que la id de la tabla sea igual a la $id recibida por GET
     		if ($view) {
-    			if ($id !== $view->facturaid) {
+    			if ($id != $view->facturaid) {
+				
     				return $this->render('errorview');
     			}
     		}

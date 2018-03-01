@@ -16,7 +16,10 @@ use yii\helpers\Url;
 
 //se arma la ruta del logo empresa 
 //$url_logo_empresa = Url::base('http') . '/' . $modelo->file;
+
+
 $m = '_modelo_' . $modelo->modelo . '.';
+
 $archivo = str_replace('.', $m, $modelo->file);
 $url_logo_empresa = Url::base('http') . '/' . $archivo;
 
@@ -25,9 +28,8 @@ $MODELO = $modelo->modelo + 1;
 
 $number = new Numbers();
 
-
 // se obtiene el CODIGO DE BARRAS
-$fecha_barcode = str_replace('-', '', explode(' ', $model->fechafactura)[0]); 
+$fecha_barcode = str_replace('-', '', explode(' ', $pie->caevencimiento)[0]); 
 $comprobante_fe = substr($comprobante->codigo, 1);
 
 $BARCODE_PHP = Barcode::getCode(

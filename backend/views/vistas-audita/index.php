@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Vistas Audita', 'url' => ['index']
 
 <center>
 <a class="btn btn-sm btn-default" style="font-size: 14px; color:#337ab7" 
-href="http://empresas.e-facturas.com.ar:85/index.php?VistasAuditaSearch%5Bempresaid%5D=&VistasAuditaSearch%5Bvistaid%5D=&VistasAuditaSearch%5Bultimo_ingreso%5D=<?=date('Y-m-d')?>&VistasAuditaSearch%5Bingreso_anterior%5D=&VistasAuditaSearch%5Bcontador%5D=&VistasAuditaSearch%5Bstatus%5D=&r=vistas-audita%2Findex">HOY</a>
+href="http://empresas.e-facturas.com.ar/index.php?VistasAuditaSearch%5Bempresaid%5D=&VistasAuditaSearch%5Bvistaid%5D=&VistasAuditaSearch%5Bultimo_ingreso%5D=<?=date('Y-m-d')?>&VistasAuditaSearch%5Bingreso_anterior%5D=&VistasAuditaSearch%5Bcontador%5D=&VistasAuditaSearch%5Bstatus%5D=&r=vistas-audita%2Findex">HOY</a>
 
 </center>
 
