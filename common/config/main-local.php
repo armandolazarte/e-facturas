@@ -5,7 +5,7 @@ return [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=138.197.101.226;dbname=fe',
             'username' => 'fe',
-            'password' => 'nuevapasta',
+            'password' => 'pastatuti',
             'charset' => 'utf8',
         ],        
     'mailer' => [
