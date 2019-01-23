@@ -50,7 +50,7 @@ foreach ($imprimir as $key) {
 
 
 // se obtiene el CODIGO DE BARRAS
-$fecha_barcode = str_replace('-', '', explode(' ', $key['caevencimiento'])[0]); 
+$fecha_barcode = str_replace('-', '', explode(' ', $key['caevencimiento'])[0]);
 $comprobante_fe = substr($key['comprobantecodigo'], 1);
 
 $BARCODE_PHP = Barcode::getCode(
@@ -110,11 +110,11 @@ $MODELO = $key['modelo'] + 1;
         <div class="recuadroleyenda"> La operaci&oacute;n igual o mayor a un mil pesos ($ 1.000.-) est&aacute; sujeta a retenci&oacute;n </div>
 		<div class="no"><?= $key['comprobantecodigo'] ?></div>
         <div class="factura"><?= $key['comprobante_descripcion']?></div>
-        <div class="numero">N�</div>
+        <div class="numero">N&deg;</div>
         <div class="numero2"><?= $key['puntoventa'].' - '.Formato::numeroFactura($key['comprobantenro']) ?></div>
         <div class="fecha">Fecha:</div>
         <div class="fecha2"><?= Formato::fecha($key['fechafactura'])?></div>
-        <div class="cuit">CUIT N�:</div>
+        <div class="cuit">CUIT N&deg;:</div>
         <div class="cuit2"><?= Formato::cuit($key['nrocuit']) ?></div>
         <div class="ingreso-bruto">IIBB CONV. MULT.:</div>
         <div class="ingreso-bruto2"><?= $key['nroiibb'] ?></div>
