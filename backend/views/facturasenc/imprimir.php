@@ -19,7 +19,7 @@ $number = new Numbers();
   <a href="#" class="botonErroresCerrar" onclick="<?= "hideDiv(['modal'])"?>">CERRAR</a>
 </div>
 
-<a href="#" id="btnError" class="botonErroresAbrir" 
+<a href="#" id="btnError" class="botonErroresAbrir"
 onclick="<?= "showDiv(['modal', 'contenido-interno'])"?>">ERRORES</a>
 
 <div onclick= ocultarBarraProgreso() onMouseOut= ocultarBarraProgreso() id="modalBarraProgreso">
@@ -40,12 +40,12 @@ function check_barcode($BARCODE){}
 </script>
 
 
-<?php 
+<?php
 
 try {
-	
+
 $PAGINA_PHP = 1;
-	
+
 foreach ($imprimir as $key) {
 
 
@@ -102,18 +102,19 @@ $MODELO = $key['modelo'] + 1;
         <div class="separador3">-</div>
         <div class="separador4">-</div>
         <div class="separador5">-</div>
-        <div class="iva-responsable-inscripto">IVA Responsable Inscripto</div>
+        <div class="iva-responsable-inscripto"><?= $empresa->responsableid == 6 ? 'Responsable Monotributo':'Responsable Inscripto'; ?></div>
+        <!-- <div class="iva-responsable-inscripto">IVA Responsable Inscripto</div> -->
         <div class="fondo-tipo"></div>
         <div class="tipo"></div>
         <div class="codigo">C&Oacute;DIGO</div>
         <div class="recuadroleyenda"> La operaci&oacute;n igual o mayor a un mil pesos ($ 1.000.-) est&aacute; sujeta a retenci&oacute;n </div>
 		<div class="no"><?= $key['comprobantecodigo'] ?></div>
         <div class="factura"><?= $key['comprobante_descripcion']?></div>
-        <div class="numero">Nº</div>
+        <div class="numero">Nï¿½</div>
         <div class="numero2"><?= $key['puntoventa'].' - '.Formato::numeroFactura($key['comprobantenro']) ?></div>
         <div class="fecha">Fecha:</div>
         <div class="fecha2"><?= Formato::fecha($key['fechafactura'])?></div>
-        <div class="cuit">CUIT Nº:</div>
+        <div class="cuit">CUIT Nï¿½:</div>
         <div class="cuit2"><?= Formato::cuit($key['nrocuit']) ?></div>
         <div class="ingreso-bruto">IIBB CONV. MULT.:</div>
         <div class="ingreso-bruto2"><?= $key['nroiibb'] ?></div>
@@ -160,7 +161,7 @@ $MODELO = $key['modelo'] + 1;
         <div class="unitario3">PRECIO</div>
         <div class="descuento3">% DTO.</div>
         <div class="precio-total3">IMPORTE</div>
-    
+
         <ul class="lista-productos">
     	    <li>
     	    <?php foreach ($key['detalle'] as $i) { ?>
@@ -174,7 +175,7 @@ $MODELO = $key['modelo'] + 1;
             <?php } ?>
             </li>
         </ul>
-        
+
 								<!-- Formato::concatenar($array, $campo, $separador) -->
         <div class="tabla-texto"><?= Formato::concatenar($key['nota'], 'descripcion', ' <br>')?></div>
         <div class="subtotal">SUBTOTAL</div>
@@ -187,47 +188,47 @@ $MODELO = $key['modelo'] + 1;
         <div class="subtotal2"><?= '$'. number_format(($key['importegravado'] + $key['importenogravado']), 2, ',', '.') ?></div>
 
         <div class="impuesto12">
-        <?php 
+        <?php
           $importe = Impuestos::getImporte($key['tributos'],'IIBB',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
-        </div>        
-        
+        </div>
+
         <div class="impuesto22">
-        <?php 
+        <?php
           $importe = Impuestos::getImporte($key['tributos'],'IIBB2',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
         </div>
-        
+
         <div class="impuesto32">
-        <?php 
+        <?php
           $importe = Impuestos::getImporte($key['tributos'],'Impuestos Municipales',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
         </div>
 
         <div class="impuesto42">
-        <?php 
+        <?php
           $importe = Impuestos::getImporte($key['tributos'],'Impuestos Internos',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
         </div>
-        
-        
+
+
         <div class="iva6">
-        <?= ($key['importeiva'] > 0) ? '$'. number_format($key['importeiva'], 2, ',', '.') : '-' ?>        
+        <?= ($key['importeiva'] > 0) ? '$'. number_format($key['importeiva'], 2, ',', '.') : '-' ?>
         </div>
 
         <div class="total2"><?= '$'. number_format($key['importetotal'], 2, ',', '.') ?></div>
 
 
 
-	<div class="numeros-letras"><?= 'SON PESOS: ' . $number->to_word(number_format($key['importetotal'], 2, ',', '.')) ?></div>       
+	<div class="numeros-letras"><?= 'SON PESOS: ' . $number->to_word(number_format($key['importetotal'], 2, ',', '.')) ?></div>
 
-	<div class="razon-social-emite2"></div>       
+	<div class="razon-social-emite2"></div>
 
-<!--         <div class="exp-hab">Exp. Hab. Nº</div> -->
+<!--         <div class="exp-hab">Exp. Hab. Nï¿½</div> -->
 <!--         <div class="exp-hab2">xxx-xxxx-x-xxxx</div> -->
 <!--         <div class="del">Del</div> -->
 <!--         <div class="del2">0001-00000651</div> -->
@@ -235,19 +236,19 @@ $MODELO = $key['modelo'] + 1;
 <!--         <div class="al2">0001-00000700</div> -->
         <div class="fecha-impresion">Fecha de impresi&oacute;n:</div>
         <div class="fecha-impresion2"><?= date('d/m/Y')?></div>
-        
+
         <div class="reparto-frec"></div>
-        <div class="reparto-frec2"><?= $key['reparto_frec'] ?></div>                
-        
+        <div class="reparto-frec2"><?= $key['reparto_frec'] ?></div>
+
         <div class="orientacion-consumidor_">Orientaci&oacute;n al consumidor Provincia de Buenos Aires 0800-222-9042</div>
-        
-        
-        
-        
+
+
+
+
 <div class="logo_pf" style="background: url('<?= Url::base('http') . '/images/rapipago.png';?>') no-repeat 0 0"></div>
-        
+
 		          <div id="barcode_COD128">
-		              <svg class="barcode_new_128" 
+		              <svg class="barcode_new_128"
 		                jsbarcode-format="CODE128"
 		                jsbarcode-value="<?= $BARCODE_PHP; ?>"
 		                jsbarcode-textmargin="0"
@@ -257,7 +258,7 @@ $MODELO = $key['modelo'] + 1;
 		                jsbarcode-fontoptions="bold">
 		              </svg>
 		          </div>
-		        
+
 
                  <div id="barcode_ITF">
                       <svg class="barcode_new_ITF"
@@ -270,20 +271,20 @@ $MODELO = $key['modelo'] + 1;
                         jsbarcode-fontoptions="bold">
                       </svg>
                   </div>
-                      
+
         <div class="leyenda-caba">
-        <?php 
-                if ($empresa->provinciaid == 0): 
-                    echo '147 Teléfono Gratuito CABA, Área de Defensa y Protección al Consumidor';
+        <?php
+                if ($empresa->provinciaid == 0):
+                    echo '147 Telï¿½fono Gratuito CABA, ï¿½rea de Defensa y Protecciï¿½n al Consumidor';
                 elseif ($empresa->provinciaid == 1):
-                    echo 'Orientaci&oacute;n al consumidor Provincia de Buenos Aires 0800-222-9042'; 
-                else: 
+                    echo 'Orientaci&oacute;n al consumidor Provincia de Buenos Aires 0800-222-9042';
+                else:
                     '';
-                endif; 
+                endif;
         ?>
-        </div>                      
-        
-        
+        </div>
+
+
         <div class="barcode"><img id="barcode"/></div>
         <div class="vencimiento-cai">VTO.:<?= Formato::fecha($key['caevencimiento']) ?></div>
         <div class="vencimiento-cai2"></div>
@@ -298,7 +299,7 @@ $MODELO = $key['modelo'] + 1;
     </div>
 </section>
 
-<?php 
+<?php
 
 /*
  *  se hace un chequeo de cada codigos de barras
@@ -333,7 +334,7 @@ var $PAGINA_JS = "<?= $PAGINA_PHP; ?>";
     /*$("#pagina2 #barcode").JsBarcode("1234567890",{format:"CODE128",displayValue:true,fontSize:11,height:30});*/
 
 
-    
+
 document.title = "(" + $PAGINA_JS + ") de (" + cantidad_facturas_js + ") Facturas";
 porcentaje = parseFloat((100/parseInt(cantidad_facturas_js)) * parseInt($PAGINA_JS)).toFixed(2);
 document.getElementById('contadorPorcentaje').innerHTML = "" + porcentaje + "%";
@@ -350,7 +351,7 @@ document.getElementById("barraAbajo").style.width = (parseInt(porcentaje)/2) + "
 JsBarcode(".barcode_new_128").init();
 
 JsBarcode(".barcode_new_ITF").init();
-    
+
 
 
 </script>
@@ -364,19 +365,19 @@ $PAGINA_PHP++;
 
 /*
  * al final de todo se comprueba si hay BARCODES con error
- * y en tal caso se arma un string con toda la informacion para 
+ * y en tal caso se arma un string con toda la informacion para
  * luego pasarcelo a JS y mostrarlo en una ventana modal al usuario
  */
 
 $errores_php = '';
-$cantidad = count($BARCODES_ARRAY); 
+$cantidad = count($BARCODES_ARRAY);
 $facturas = ($cantidad == 1) ? ' FACTURA' : ' FACTURAS';
 if ($cantidad  > 0) {
 
-	$errores_php .= "<br><br><b style='font: 18px arial; font-weight:bold;'>" . 
-			$cantidad . $facturas. ' CON ERROR </b>' . 
-			'(Código de barras incorrecto)<br><br>';
-		
+	$errores_php .= "<br><br><b style='font: 18px arial; font-weight:bold;'>" .
+			$cantidad . $facturas. ' CON ERROR </b>' .
+			'(Cï¿½digo de barras incorrecto)<br><br>';
+
 	foreach($BARCODES_ARRAY as $array){
 		$errores_php .= '<br>' .
 				 '<b>CODIGO: </b>' . $array['comprobantecodigo'] . ' - ' .
@@ -385,10 +386,10 @@ if ($cantidad  > 0) {
 				 '<b>CAE: </b>' . $array['cae'] . ' - ' .
 				 '<b>COD BARRAS: </b>' . $array['barcode'] . '<br>';
 	}
-	
+
 	$errores_php .= '<br>';
 ?>
-	
+
 <script>
 var $errores_js = null;
 $errores_js = "<?= $errores_php?>";
@@ -414,7 +415,7 @@ if ($PAGINA_JS == cantidad_facturas_js) {
 	document.getElementById('facturas').innerHTML = $PAGINA_JS + " " + str_factura;
 	ocultar = true;
 // 	setTimeout(function(){hideDiv(['modalBarraProgreso', 'barraArriba', 'contadorPorcentaje', 'barraAbajo']);},10000);
-	
+
 
 }
 var erroresInsertados = false;
@@ -429,7 +430,7 @@ function insertarErrores() {
 function ocultarBarraProgreso() {
 	if (ocultar) {
 		setInterval(function(){desvanecerModal("modalBarraProgreso")},10);
-	
+
 	}
 }
 
@@ -444,7 +445,7 @@ function desvanecerModal(id) {
 	}
 
 	document.getElementById(id).style.opacity  = x;
-	
+
 	if (x > 0) {
 		opacidadModal = parseFloat(opacidadModal) - 0.05;
 	}

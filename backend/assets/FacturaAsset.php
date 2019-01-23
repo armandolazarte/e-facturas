@@ -24,13 +24,16 @@ class FacturaAsset extends AssetBundle
     	'css/site.css',
         'css/diseno-2A.css',
         'css/diseno-2B.css',
-        'css/diseno-2M.css',                
+        'css/diseno-2M.css',
+        'css/diseno-2C.css',
         'css/diseno-3A.css',
         'css/diseno-3B.css',
         'css/diseno-3M.css',
+        'css/diseno-3C.css',
         'css/diseno-4A.css',
         'css/diseno-4B.css',
         'css/diseno-4M.css',
+        'css/diseno-4C.css',
         'css/productos.css',
     ];
     public $js = [
@@ -38,7 +41,7 @@ class FacturaAsset extends AssetBundle
     	'js/modal.js',
     	'js/jquery-min.js',
         'js/JsBarcode.all.min.js',
-        
+
     ];
     /*public $depends = [
         'yii\web\YiiAsset',

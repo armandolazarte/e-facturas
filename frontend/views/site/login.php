@@ -73,7 +73,7 @@ body {
         					'placeholder' => $model->getAttributeLabel('username'),
     						],
 					])
-					->textInput(['maxlength'=>20])
+					->textInput(['maxlength'=>30])
 					->label(false);
 			?>
                 <?= $form->field($model, 'password', [
