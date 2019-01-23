@@ -90,19 +90,17 @@ class Email
 	{
 
 		$arrayMails = ($arrayMails == null) ? array() : $arrayMails;
-		$arrayMails = array_unique($arrayMails);		
-		$arrayMails = array();
-		//$email = 'rdevicenzi@gmail.com';
+		$arrayMails = array_unique($arrayMails);
 
 		$APIKEY = ApiKey::getApiKey();
-		$APIKEY_ACTIVO = (isset($APIKEY->activo)) ? $APIKEY->activo : 'NO';		
+		$APIKEY_ACTIVO = (isset($APIKEY->activo)) ? $APIKEY->activo : 'NO';
 
 		if ($modo_envio_fe == 'SI' && $APIKEY_ACTIVO == 'SI') {
 
 			$ReplyTo = (isset($arrayEmailsReplyTo[0])) ? $arrayEmailsReplyTo[0] : 'no-reply@notificacion-fe.com' ;
 
 			$API_KEY = $APIKEY->apikey;
-			
+
 			$FROM_EMAIL = $ReplyTo; //'no-reply@fe.com';
 
 			$TO_EMAIL = $email;
@@ -130,9 +128,9 @@ class Email
 				$response = $sg->client->mail()->send()->post($mail);				
 			}
 		
-		/*			
+		/*
 			if ($response->statusCode() == 202) {
-				echo 'done';
+				echo 'doneeeeeeeeeeeeeeeee';
 			} else {
 				echo 'false';
 			}
