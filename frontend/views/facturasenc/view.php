@@ -10,7 +10,7 @@ use yii\helpers\Url;
 <?php
 // ---------------- VARIABLES LOCALES PHP --------------------------
 
-//se arma la ruta del logo empresa 
+//se arma la ruta del logo empresa
 $m = '_modelo_' . $modelo->modelo . '.';
 $archivo = str_replace('.', $m, $modelo->file);
 $url_logo_empresa = str_replace('frontend', 'backend', Url::base('http') . '/' . $archivo);
@@ -22,7 +22,7 @@ $MODELO = $modelo->modelo + 1;
 $number = new Numbers();
 
 // se obtiene el CODIGO DE BARRAS
-$fecha_barcode = str_replace('-', '', explode(' ', $pie->caevencimiento)[0]); 
+$fecha_barcode = str_replace('-', '', explode(' ', $pie->caevencimiento)[0]);
 $comprobante_fe = substr($comprobante->codigo, 1);
 
 $BARCODE_PHP = Barcode::getCode(
@@ -68,11 +68,11 @@ $BARCODE_PHP = Barcode::getCode(
         <div class="separador3">-</div>
         <div class="separador4">-</div>
         <div class="separador5">-</div>
-        <div class="iva-responsable-inscripto">IVA Responsable Inscripto</div>
+        <div class="iva-responsable-inscripto"><?= $empresa->responsableid == 6 ? 'Responsable Monotributo':'Responsable Inscripto'; ?></div>
         <div class="fondo-tipo"></div>
         <div class="tipo"></div>
         <div class="codigo">C&Oacute;DIGO</div>
-        <div class="recuadroleyenda"> La operaci&oacute;n igual o mayor a un mil pesos ($ 1.000.-) est&aacute; sujeta a retenci&oacute;n </div>        
+        <div class="recuadroleyenda"> La operaci&oacute;n igual o mayor a un mil pesos ($ 1.000.-) est&aacute; sujeta a retenci&oacute;n </div>
         <div class="no"><?= $comprobante->codigo ?></div>
         <div class="factura"><?= $comprobante->descripcion?></div>
         <div class="numero">N&deg;</div>
@@ -104,7 +104,7 @@ $BARCODE_PHP = Barcode::getCode(
         <div class="ingreso-bruto5"></div>
         <div class="localidad3">Localidad:</div>
         <div class="localidad4"><?= $model->localidad ?></div>
-        
+
         <div class="iva">I.V.A.:</div>
         <!--
         <div class="iva3">Responsable Inscripto</div>
@@ -130,16 +130,16 @@ $BARCODE_PHP = Barcode::getCode(
         <ul class="lista-productos">
             <?php foreach ($item as $i) { ?>
                 <li>
-                    
+
                     <span class="cantidad-cell"><?= $i->cantidad ?></span>
                     <span class="detalle-cell"><?= Formato::utf8_decode_all($i->descripcion) ?></span>
                     <span class="unitario-cell"><?= '$'.number_format($i->preciounitario, 2, ',', '.') ?></span>
-                    
+
                     <span class="precio-total-cell"><?= '$'.number_format($i->subtotal, 2, ',', '.') ?></span>
                 </li>
-  
+
              <?php } ?>
-            
+
 
         </ul>
 <!--                                 Formato::concatenar($array, $campo, $separador) -->
@@ -152,38 +152,38 @@ $BARCODE_PHP = Barcode::getCode(
         <div class="iva5">IVA </div>
         <div class="total">TOTAL</div>
         <div class="subtotal2"><?= '$'.number_format(($pie->importegravado + $pie->importenogravado), 2, ',', '.') ?></div>
-        
+
 
         <div class="impuesto12">
-        <?php 
+        <?php
           $importe = Impuestos::getImporte($tributo,'IIBB',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
-        </div>        
-        
+        </div>
+
         <div class="impuesto22">
-        <?php 
+        <?php
           $importe = Impuestos::getImporte($tributo,'IIBB2',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
         </div>
-        
+
         <div class="impuesto32">
-        <?php 
+        <?php
           $importe = Impuestos::getImporte($tributo,'Impuestos Municipales',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
         </div>
-        
+
         <div class="impuesto42">
-        <?php 
+        <?php
           $importe = Impuestos::getImporte($tributo,'Impuestos Internos',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
         </div>
-        
+
         <div class="iva6">
-        <?= ($pie->importeiva > 0) ? '$'. number_format($pie->importeiva, 2, ',', '.') : '-' ?>        
+        <?= ($pie->importeiva > 0) ? '$'. number_format($pie->importeiva, 2, ',', '.') : '-' ?>
         </div>
 
 
@@ -201,22 +201,22 @@ $BARCODE_PHP = Barcode::getCode(
 <!--         <div class="al2">0001-00000700</div> -->
         <div class="fecha-impresion">Fecha de impresi&oacute;n:</div>
         <div class="fecha-impresion2"><?= date('d/m/Y')?></div>
-        
+
         <div class="reparto-frec"></div>
-        <div class="reparto-frec2"><?= $model->reparto . ' ' . $model->frecuencia ?></div>        
-        
+        <div class="reparto-frec2"><?= $model->reparto . ' ' . $model->frecuencia ?></div>
+
         <div class="orientacion-consumidor_">Orientaci&oacute;n al consumidor Provincia de Buenos Aires 0800-222-9042</div>
 
 
 
 
-        
+
 
 
 <div class="logo_pf" style="background: url('<?= Url::base('http') . '/images/rapipago.png';?>') no-repeat 0 0"></div>
-        
+
                   <div id="barcode_COD128">
-                      <svg class="barcode_new_128" 
+                      <svg class="barcode_new_128"
                         jsbarcode-format="CODE128"
                         jsbarcode-value="<?= $BARCODE_PHP; ?>"
                         jsbarcode-textmargin="0"
@@ -226,7 +226,7 @@ $BARCODE_PHP = Barcode::getCode(
                         jsbarcode-fontoptions="bold">
                       </svg>
                   </div>
-                
+
 
                  <div id="barcode_ITF">
                       <svg class="barcode_new_ITF"
@@ -239,31 +239,31 @@ $BARCODE_PHP = Barcode::getCode(
                         jsbarcode-fontoptions="bold">
                       </svg>
                   </div>
-              
 
-                  
+
+
 
 
             <div class="barcode"><img id="barcode"/></div>
             <div class="cai">CAE.:</div>
             <div class="cai2"><?= $pie->cae ?></div>
             <div class="vencimiento-cai3">Vto. CAE: <?= Formato::fecha($pie->caevencimiento) ?></div>
-                
+
             <div class="leyenda-caba">
-            <?php 
-                    if ($empresa->provinciaid == 0): 
+            <?php
+                    if ($empresa->provinciaid == 0):
                         echo '147 Tel&eacute;fono Gratuito CABA, &Aacute;rea de Defensa y Protecci&oacute;n al Consumidor';
                     elseif ($empresa->provinciaid == 1):
-                        echo 'Orientaci&oacute;n al consumidor Provincia de Buenos Aires 0800-222-9042'; 
-                    else: 
+                        echo 'Orientaci&oacute;n al consumidor Provincia de Buenos Aires 0800-222-9042';
+                    else:
                         '';
-                    endif; 
+                    endif;
             ?>
-            </div>                      
-            
+            </div>
+
             <div class="razon-social-emite">
                 Raz&oacute;n Social del que emite -
-                <?php 
+                <?php
                 if ($MODELO != '4' and $letra_factura != 'B') {
                     if (strlen($empresa->razonsocial) >= 22) {
                         echo "<br>";
@@ -272,8 +272,8 @@ $BARCODE_PHP = Barcode::getCode(
                 ?>
                 <?= $empresa->razonsocial?>
             <br> C.U.I.T. N&deg; <?=    Formato::cuit($empresa->nrocuit) ?>
-            </div>          
-        
+            </div>
+
 
         <div class="vencimiento-cai">Vto. CAE: <?= Formato::fecha($pie->caevencimiento) ?></div>
         <div class="vencimiento-cai2"></div>
@@ -293,11 +293,11 @@ var $BARCODE_JS = "<?= $BARCODE_PHP; ?>";
 
 //=====================================================================
 //===================== FACTURAS DEBUGGER =============================
-    
+
 //=====================================================================
 //=====================================================================
 
-    
+
 var $fontSize = 11;
 var nav = navigator.userAgent.toLowerCase();
 
@@ -326,8 +326,8 @@ JsBarcode(".barcode_new_ITF").init();
 <style>
 .barcode_1 img{
   display: block;
-}            
- 
+}
+
 .container-3A .barcode_1 {
   top: 1150px;
   left: 247px;
@@ -335,7 +335,7 @@ JsBarcode(".barcode_new_ITF").init();
   overflow: hidden;
   width: 1284px;
   display: block;
-}            
+}
 .container-4A .barcode_1 {
   top: 1140px;
   left: 240px;
@@ -378,7 +378,7 @@ JsBarcode(".barcode_new_ITF").init();
   font-weight: bold;
   display: block;
 }
-            
+
 .container-3A .vencimiento-cai3_debbug {
   top: 1140px;
   left: 60px;
