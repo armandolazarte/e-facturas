@@ -40,7 +40,7 @@ page-break-after: auto;
   display: block;
 }
 
-.container-4B .direccion::after, .container-4B .cod-postal::after, 
+.container-4B .direccion::after, .container-4B .cod-postal::after,
 .container-4B .telefono::after, .container-4B .email::after, .container-4B .localidad::after{
   content: ":";
 }
@@ -515,7 +515,7 @@ content: "B";
 }
 
 .container-4B .tabla-texto {
-  top: 800px;
+  top: 700px;
   font-size: 0.63em;
   left: 64px;
   width: 790px;
@@ -898,7 +898,7 @@ content: "B";
   top: 410px;
   left: 230px;
   font-size: 0.80em;
-  font-weight: bold;  
+  font-weight: bold;
   display: block;
 }
 

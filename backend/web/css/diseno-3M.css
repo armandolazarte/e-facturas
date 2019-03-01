@@ -147,7 +147,7 @@ content: "A";
   top: 99px;
   left: 461px;
   font-size: 0.5em;
-  font-weight: bold;  
+  font-weight: bold;
   display: block;
 }
 
@@ -155,7 +155,7 @@ content: "A";
   top: 99px;
   left: 495px;
   font-size: 0.5em;
-  font-weight: bold;  
+  font-weight: bold;
   display: block;
 }
 
@@ -436,7 +436,7 @@ content: "A";
 }
 
 .container-3A .tabla-texto {
-  top: 800px;
+  top: 700px;
   font-size: 0.63em;
   font-weight: bold;
   left: 64px;
@@ -894,4 +894,3 @@ content: "A";
 .container-3M .tipo::after{
 content: "M";
 }
-

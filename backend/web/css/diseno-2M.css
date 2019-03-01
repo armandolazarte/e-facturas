@@ -10,8 +10,8 @@ display: none;
 .container-2M .productos-servicios {
   top: 60px;
   left: 290px;
-  width: 213px;  
-  text-align: center;  
+  width: 213px;
+  text-align: center;
   font-size: 1.1em;
   font-weight: bold;
   display: block;
@@ -453,7 +453,7 @@ display: block;
 }
 
 .container-2M .tabla-texto {
-  top: 800px;
+  top: 700px;
   font-size: 0.63em;
   left: 60px;
   width: 790px;
