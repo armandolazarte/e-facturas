@@ -580,14 +580,14 @@ content: "B";
 
 .container-4B .impuesto4 {
   top: 1060px;
-  left: 478px;
+  left: 260px;
   width: 102px;
   font-size: 0.75em;
   height: 22px;
   background-color: #939598;
   padding-top: 1px;
   text-align: center;
-  display: none;
+  display: block;
   border-radius: 11px;
   color: #fff;
 }
@@ -682,14 +682,14 @@ content: "B";
 
 .container-4B .impuesto42 {
   top: 1086px;
-  left: 478px;
+  left: 260px;
   width: 102px;
   font-size: 0.75em;
   height: 24px;
   background-color: #BCBDC0;
   padding-top: 9px;
   text-align: center;
-  display: none;
+  display: block;
   border-radius: 11px;
   color: #000;
   font-weight: bold;

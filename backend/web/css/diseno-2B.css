@@ -519,15 +519,15 @@ display: block;
 }
 
 .container-2B .impuesto4 {
-  top: 1041px;
-  left: 481px;
+  top: 1042px;
+  left: 275px;
   width: 100px;
   font-size: 0.75em;
   height: 20px;
   border: 2px solid #221E1F;
   padding-top: 1px;
   text-align: center;
-  display: none;
+  display: block;
 }
 
 .container-2B .iva5 {
@@ -603,15 +603,15 @@ display: block;
 }
 
 .container-2B .impuesto42 {
-  top: 1067px;
-  left: 481px;
+  top: 1068px;
+  left: 275px;
   width: 100px;
   font-size: 0.75em;
   height: 24px;
   border: 2px solid #221E1F;
   padding-top: 6px;
   text-align: center;
-  display: none;
+  display: block;
 }
 
 .container-2B .iva6 {
