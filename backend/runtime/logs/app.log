@@ -46852,3 +46852,300 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1548250896.381
     'REQUEST_TIME' => 1548250896
 ]
+2019-03-28 18:36:22 [::1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder.
+' in C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Connection.php:579
+Stack trace:
+#0 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Connection.php(579): PDO->__construct('mysql:host=10.1...', 'fe', 'pastatuti', NULL)
+#1 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Connection.php(529): yii\db\Connection->createPdoInstance()
+#2 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Connection.php(836): yii\db\Connection->open()
+#3 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Connection.php(823): yii\db\Connection->getMasterPdo()
+#4 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Command.php(208): yii\db\Connection->getSlavePdo()
+#5 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Command.php(816): yii\db\Command->prepare(true)
+#6 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Command.php(364): yii\db\Command->queryInternal('fetch', NULL)
+#7 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#8 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\ActiveQuery.php(285): yii\db\Query->one(NULL)
+#9 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\BaseActiveRecord.php(101): yii\db\ActiveQuery->one()
+#10 C:\xampp\htdocs\e-facturas\backend\models\User.php(70): yii\db\BaseActiveRecord::findOne(Array)
+#11 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\web\User.php(614): backend\models\User::findIdentity(132)
+#12 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#13 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#14 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#15 C:\xampp\htdocs\e-facturas\backend\controllers\SiteController.php(111): yii\base\Component->__get('isGuest')
+#16 [internal function]: backend\controllers\SiteController->actionIndex()
+#17 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#18 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\base\Controller.php(152): yii\base\InlineAction->runWithParams(Array)
+#19 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('', Array)
+#20 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('', Array)
+#21 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\base\Application.php(377): yii\web\Application->handleRequest(Object(yii\web\Request))
+#22 C:\xampp\htdocs\e-facturas\backend\web\index.php(18): yii\base\Application->run()
+#23 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000] [2002] Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder.
+' in C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Connection.php:534
+Stack trace:
+#0 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Connection.php(836): yii\db\Connection->open()
+#1 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Connection.php(823): yii\db\Connection->getMasterPdo()
+#2 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Command.php(208): yii\db\Connection->getSlavePdo()
+#3 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Command.php(816): yii\db\Command->prepare(true)
+#4 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Command.php(364): yii\db\Command->queryInternal('fetch', NULL)
+#5 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#6 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\ActiveQuery.php(285): yii\db\Query->one(NULL)
+#7 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\BaseActiveRecord.php(101): yii\db\ActiveQuery->one()
+#8 C:\xampp\htdocs\e-facturas\backend\models\User.php(70): yii\db\BaseActiveRecord::findOne(Array)
+#9 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\web\User.php(614): backend\models\User::findIdentity(132)
+#10 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#11 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#12 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#13 C:\xampp\htdocs\e-facturas\backend\controllers\SiteController.php(111): yii\base\Component->__get('isGuest')
+#14 [internal function]: backend\controllers\SiteController->actionIndex()
+#15 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#16 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\base\Controller.php(152): yii\base\InlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('', Array)
+#18 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('', Array)
+#19 C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\base\Application.php(377): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 C:\xampp\htdocs\e-facturas\backend\web\index.php(18): yii\base\Application->run()
+#21 {main}
+Additional Information:
+
+2019-03-28 18:35:58 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '6f4212aefd6b27d26b4eef52ec4926188585efae6c7b0bda06c585ba92fe9dcda:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"64_mLxaNlJUOIMBvFEFocI5uAiiXpyrm\";}'
+    'PHPBACKSESSID' => 'n0pa6m9h4qq73jav005qaup184'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 132
+    'Empresa' => 'HIDRO'
+    'QueryFactura' => yii\db\ActiveQuery#1
+    (
+        [sql] => null
+        [on] => null
+        [joinWith] => [
+            0 => [
+                0 => [
+                    0 => 'facturaspies'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+            1 => [
+                0 => [
+                    0 => 'receptor'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+            2 => [
+                0 => [
+                    0 => 'puntoventa0'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+        ]
+        [select] => null
+        [selectOption] => null
+        [distinct] => null
+        [from] => null
+        [groupBy] => [
+            0 => 'empresaid'
+            1 => 'receptorid'
+            2 => 'puntoventa'
+            3 => 'comprobanteid'
+            4 => 'comprobantenro'
+            5 => 'letra'
+        ]
+        [join] => null
+        [having] => null
+        [union] => null
+        [params] => [
+            'empresaid' => '172'
+            'cae' => 0
+            'fchdde' => '20181229'
+            'fchhta' => '20190207'
+        ]
+        [yii\base\Component:_events] => []
+        [yii\base\Component:_behaviors] => []
+        [where] => [
+            0 => 'and'
+            1 => [
+                0 => 'and'
+                1 => 'facturasenc.empresaid = :empresaid and ifnull(cae,-1) > :cae'
+                2 => 'fechafactura >= :fchdde'
+            ]
+            2 => 'fechafactura <= :fchhta'
+        ]
+        [limit] => null
+        [offset] => null
+        [orderBy] => [
+            'comprobantenro' => 3
+            'letra' => 3
+        ]
+        [indexBy] => null
+        [modelClass] => 'frontend\\models\\Facturasenc'
+        [with] => null
+        [asArray] => null
+        [multiple] => null
+        [primaryModel] => null
+        [link] => null
+        [via] => null
+        [inverseOf] => null
+    )
+    'UJBIIUFMDTNVAJKKHLISPHBQODTJHI' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'ZKMVOTBOMOTZOMSYEGQXVKQGSNBT' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'HIWOVCKNPUVKQXMSXJBLAUX' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'QueryFacturaSelect' => []
+    'FBADMCZWKSUPQHQGXADAITBOVY' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'DXJVOJKAGTNDKWFPAXEHWMUS' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'EINEGKJJEBZVMESRXHPIVSBUBLUU' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'GBAGEZDAMTAEKLGXOGIDFYOWFBJ' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'FDEIPVZQWUVNNQCZJLKWBKGHAFMIH' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'FRIKZLWIPUXFAKGUUXLETGGQ' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'CVKKVXCCFQKPJJNDKZHFDGHTYCJ' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'QCRSWIWPORUDKBKTWSMVOUKW' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'SMEQBHYFVQIYCDBMYCXMHVDQZTW' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'KRURBUXEUCOCDBKGLPWGATLDWN' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'AFFFYJMGTKOROUJBDPPPXAAYXNF' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'XUZEFRELFKUNGDGNYHYWEPRPRQHO' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'filtro_receptores' => 'TODOS'
+    'GFSRYLGUXVNLWFVSSNOCAZWWANFKL' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'DYXYYMAHGHYOOVNAAFPSFOVYD' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'JFYRRLWVOVUJZQXWGMCBIB' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'MensajeNotificacionFactura' => ''
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://localhost:8000/e-facturas/backend/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'es-ES,es;q=0.9,en;q=0.8,gl;q=0.7,pt;q=0.6'
+    'HTTP_COOKIE' => '_csrf=6f4212aefd6b27d26b4eef52ec4926188585efae6c7b0bda06c585ba92fe9dcda%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%2264_mLxaNlJUOIMBvFEFocI5uAiiXpyrm%22%3B%7D; PHPBACKSESSID=n0pa6m9h4qq73jav005qaup184'
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\VSShell\\Common7\\IDE\\;c:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\PrivateAssemblies\\;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Python27\\;C:\\Python27\\Scripts\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\PrivateAssemblies\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Java\\jdk1.8.0_181\\bin\\jarsigner;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Android\\android-sdk\\tools;C:\\Program Files (x86)\\Android\\android-sdk\\platform-tools;C:\\Program Files (x86)\\Android\\android-sdk\\build-tools\\26.0.3;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\nodejs\\;C:\\Gradle\\gradle-4.10.2\\bin;C:\\Users\\Leandro\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Leandro\\AppData\\Local\\atom\\bin;C:\\Users\\Leandro\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Leandro\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.6.28 Server at localhost Port 8000</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.6.28'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8000'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/e-facturas/backend/web/index.php'
+    'REMOTE_PORT' => '10280'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/e-facturas/backend/web/'
+    'SCRIPT_NAME' => '/e-facturas/backend/web/index.php'
+    'PHP_SELF' => '/e-facturas/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1553794558.156
+    'REQUEST_TIME' => 1553794558
+]

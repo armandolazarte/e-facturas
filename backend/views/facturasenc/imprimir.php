@@ -168,7 +168,7 @@ $MODELO = $key['modelo'] + 1;
     	    	<span class="codigo-cell"><?php echo '('.$i['codigo'].')' ?></span>
                 <span class="cantidad-cell"><?php echo $i['cantidad'] ?></span>
                 <span class="detalle-cell"><?php echo Formato::utf8_decode_all($i['descripcion'])?></span>
-                <span class="unitario-cell"><?= '$'.number_format($i['preciounitario'], 2, ',', '.') ?></span>
+                <span class="unitario-cell"><?= '$'.number_format($i['preciounitario'], 3, ',', '.') ?></span>
 			    <span class="descuento-cell"></span>
                 <span class="precio-total-cell"><?= '$'.number_format($i['subtotal'], 2, ',', '.') ?></span>
                 <br/>

@@ -138,7 +138,7 @@ $BARCODE_PHP = Barcode::getCode(
 
                     <span class="cantidad-cell"><?= $i->cantidad ?></span>
                     <span class="detalle-cell"><?= Formato::utf8_decode_all($i->descripcion) ?></span>
-                    <span class="unitario-cell"><?= '$'.number_format($i->preciounitario, 2, ',', '.') ?></span>
+                    <span class="unitario-cell"><?= '$'.number_format($i->preciounitario, 3, ',', '.') ?></span>
 
                     <span class="precio-total-cell"><?= '$'.number_format($i->subtotal, 2, ',', '.') ?></span>
                 </li>
