@@ -47149,3 +47149,825 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1553794558.156
     'REQUEST_TIME' => 1553794558
 ]
+2019-04-03 19:25:28 [::1][2][db441ebr8gs9vn03e14fpd4h96][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Maximum execution time of 30 seconds exceeded' in C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Command.php:824
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2019-04-03 19:24:58 [::1][2][db441ebr8gs9vn03e14fpd4h96][info][application] $_GET = [
+    'r' => 'facturasenc/index'
+]
+
+$_COOKIE = [
+    '_csrf' => '6f4212aefd6b27d26b4eef52ec4926188585efae6c7b0bda06c585ba92fe9dcda:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"64_mLxaNlJUOIMBvFEFocI5uAiiXpyrm\";}'
+    'PHPBACKSESSID' => 'db441ebr8gs9vn03e14fpd4h96'
+    '_identity' => 'bb4ed43513d893acdcc758f238df482fb1fdc33ca2d7ef3480efc2ee9217db86a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[2,\"iWek1hgCUnxtmc9CGl2utlaaoOuF8vAX\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 2
+    'Empresa' => 'AIRTECH S.A.'
+    'LLYUZUKXCOUZVJNSHJXBVW' => [
+        'view' => 'empresas/index'
+        'title' => 'cargando datos empresas . . .'
+        'spinner' => 'spinner'
+    ]
+    'QueryFactura' => yii\db\ActiveQuery#1
+    (
+        [sql] => null
+        [on] => null
+        [joinWith] => [
+            0 => [
+                0 => [
+                    0 => 'facturaspies'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+            1 => [
+                0 => [
+                    0 => 'receptor'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+            2 => [
+                0 => [
+                    0 => 'puntoventa0'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+        ]
+        [select] => null
+        [selectOption] => null
+        [distinct] => null
+        [from] => null
+        [groupBy] => [
+            0 => 'empresaid'
+            1 => 'receptorid'
+            2 => 'puntoventa'
+            3 => 'comprobanteid'
+            4 => 'comprobantenro'
+            5 => 'letra'
+        ]
+        [join] => null
+        [having] => null
+        [union] => null
+        [params] => [
+            'empresaid' => '41'
+            'cae' => 0
+            'fchdde' => '20190304'
+            'fchhta' => '20190413'
+        ]
+        [yii\base\Component:_events] => []
+        [yii\base\Component:_behaviors] => []
+        [where] => [
+            0 => 'and'
+            1 => [
+                0 => 'and'
+                1 => 'facturasenc.empresaid = :empresaid and ifnull(cae,-1) > :cae'
+                2 => 'fechafactura >= :fchdde'
+            ]
+            2 => 'fechafactura <= :fchhta'
+        ]
+        [limit] => null
+        [offset] => null
+        [orderBy] => [
+            'comprobantenro' => 3
+            'letra' => 3
+        ]
+        [indexBy] => null
+        [modelClass] => 'frontend\\models\\Facturasenc'
+        [with] => null
+        [asArray] => null
+        [multiple] => null
+        [primaryModel] => null
+        [link] => null
+        [via] => null
+        [inverseOf] => null
+    )
+    'IPGMSUHUIEYRSSWKZZZMHBU' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'MOVRXPGNXKQKZOTCCGYAXJSBJB' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'DTSUJDTXMRGGVSJIXKMFWLNG' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://localhost:8000/e-facturas/backend/web/index.php?r=site%2Fstate-index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'es-ES,es;q=0.9,en;q=0.8,gl;q=0.7,pt;q=0.6'
+    'HTTP_COOKIE' => '_csrf=6f4212aefd6b27d26b4eef52ec4926188585efae6c7b0bda06c585ba92fe9dcda%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%2264_mLxaNlJUOIMBvFEFocI5uAiiXpyrm%22%3B%7D; PHPBACKSESSID=db441ebr8gs9vn03e14fpd4h96; _identity=bb4ed43513d893acdcc758f238df482fb1fdc33ca2d7ef3480efc2ee9217db86a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22iWek1hgCUnxtmc9CGl2utlaaoOuF8vAX%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\VSShell\\Common7\\IDE\\;c:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\PrivateAssemblies\\;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Python27\\;C:\\Python27\\Scripts\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\PrivateAssemblies\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Java\\jdk1.8.0_181\\bin\\jarsigner;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Android\\android-sdk\\tools;C:\\Program Files (x86)\\Android\\android-sdk\\platform-tools;C:\\Program Files (x86)\\Android\\android-sdk\\build-tools\\26.0.3;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\nodejs\\;C:\\Gradle\\gradle-4.10.2\\bin;C:\\Users\\Leandro\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Leandro\\AppData\\Local\\atom\\bin;C:\\Users\\Leandro\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Leandro\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.6.28 Server at localhost Port 8000</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.6.28'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8000'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/e-facturas/backend/web/index.php'
+    'REMOTE_PORT' => '4306'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=facturasenc%2Findex'
+    'REQUEST_URI' => '/e-facturas/backend/web/index.php?r=facturasenc%2Findex'
+    'SCRIPT_NAME' => '/e-facturas/backend/web/index.php'
+    'PHP_SELF' => '/e-facturas/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1554312298.55
+    'REQUEST_TIME' => 1554312298
+]
+2019-04-03 19:26:26 [::1][2][db441ebr8gs9vn03e14fpd4h96][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Maximum execution time of 30 seconds exceeded' in C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Command.php:824
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2019-04-03 19:25:56 [::1][2][db441ebr8gs9vn03e14fpd4h96][info][application] $_GET = [
+    'r' => 'facturasenc/index'
+]
+
+$_COOKIE = [
+    '_csrf' => '6f4212aefd6b27d26b4eef52ec4926188585efae6c7b0bda06c585ba92fe9dcda:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"64_mLxaNlJUOIMBvFEFocI5uAiiXpyrm\";}'
+    'PHPBACKSESSID' => 'db441ebr8gs9vn03e14fpd4h96'
+    '_identity' => 'bb4ed43513d893acdcc758f238df482fb1fdc33ca2d7ef3480efc2ee9217db86a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[2,\"iWek1hgCUnxtmc9CGl2utlaaoOuF8vAX\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 2
+    'Empresa' => 'AIRTECH S.A.'
+    'LLYUZUKXCOUZVJNSHJXBVW' => [
+        'view' => 'empresas/index'
+        'title' => 'cargando datos empresas . . .'
+        'spinner' => 'spinner'
+    ]
+    'QueryFactura' => yii\db\ActiveQuery#1
+    (
+        [sql] => null
+        [on] => null
+        [joinWith] => [
+            0 => [
+                0 => [
+                    0 => 'facturaspies'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+            1 => [
+                0 => [
+                    0 => 'receptor'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+            2 => [
+                0 => [
+                    0 => 'puntoventa0'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+        ]
+        [select] => null
+        [selectOption] => null
+        [distinct] => null
+        [from] => null
+        [groupBy] => [
+            0 => 'empresaid'
+            1 => 'receptorid'
+            2 => 'puntoventa'
+            3 => 'comprobanteid'
+            4 => 'comprobantenro'
+            5 => 'letra'
+        ]
+        [join] => null
+        [having] => null
+        [union] => null
+        [params] => [
+            'empresaid' => '41'
+            'cae' => 0
+            'fchdde' => '20190304'
+            'fchhta' => '20190413'
+        ]
+        [yii\base\Component:_events] => []
+        [yii\base\Component:_behaviors] => []
+        [where] => [
+            0 => 'and'
+            1 => [
+                0 => 'and'
+                1 => 'facturasenc.empresaid = :empresaid and ifnull(cae,-1) > :cae'
+                2 => 'fechafactura >= :fchdde'
+            ]
+            2 => 'fechafactura <= :fchhta'
+        ]
+        [limit] => null
+        [offset] => null
+        [orderBy] => [
+            'comprobantenro' => 3
+            'letra' => 3
+        ]
+        [indexBy] => null
+        [modelClass] => 'frontend\\models\\Facturasenc'
+        [with] => null
+        [asArray] => null
+        [multiple] => null
+        [primaryModel] => null
+        [link] => null
+        [via] => null
+        [inverseOf] => null
+    )
+    'IPGMSUHUIEYRSSWKZZZMHBU' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'MOVRXPGNXKQKZOTCCGYAXJSBJB' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'DTSUJDTXMRGGVSJIXKMFWLNG' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'DUGDOZOWBXMREIOLVGRCZREUXTOE' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'FOLZGHZVFPQJOHVGEJTYNFYH' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'EIZBEYBNMUINRXDMRBEWNFNL' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'es-ES,es;q=0.9,en;q=0.8,gl;q=0.7,pt;q=0.6'
+    'HTTP_COOKIE' => '_csrf=6f4212aefd6b27d26b4eef52ec4926188585efae6c7b0bda06c585ba92fe9dcda%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%2264_mLxaNlJUOIMBvFEFocI5uAiiXpyrm%22%3B%7D; PHPBACKSESSID=db441ebr8gs9vn03e14fpd4h96; _identity=bb4ed43513d893acdcc758f238df482fb1fdc33ca2d7ef3480efc2ee9217db86a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22iWek1hgCUnxtmc9CGl2utlaaoOuF8vAX%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\VSShell\\Common7\\IDE\\;c:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\PrivateAssemblies\\;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Python27\\;C:\\Python27\\Scripts\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\PrivateAssemblies\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Java\\jdk1.8.0_181\\bin\\jarsigner;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Android\\android-sdk\\tools;C:\\Program Files (x86)\\Android\\android-sdk\\platform-tools;C:\\Program Files (x86)\\Android\\android-sdk\\build-tools\\26.0.3;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\nodejs\\;C:\\Gradle\\gradle-4.10.2\\bin;C:\\Users\\Leandro\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Leandro\\AppData\\Local\\atom\\bin;C:\\Users\\Leandro\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Leandro\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.6.28 Server at localhost Port 8000</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.6.28'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8000'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/e-facturas/backend/web/index.php'
+    'REMOTE_PORT' => '4314'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=facturasenc%2Findex'
+    'REQUEST_URI' => '/e-facturas/backend/web/index.php?r=facturasenc%2Findex'
+    'SCRIPT_NAME' => '/e-facturas/backend/web/index.php'
+    'PHP_SELF' => '/e-facturas/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1554312356.524
+    'REQUEST_TIME' => 1554312356
+]
+2019-04-03 19:29:29 [::1][2][db441ebr8gs9vn03e14fpd4h96][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Maximum execution time of 30 seconds exceeded' in C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Command.php:824
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2019-04-03 19:28:59 [::1][2][db441ebr8gs9vn03e14fpd4h96][info][application] $_GET = [
+    'r' => 'facturasenc/index'
+]
+
+$_COOKIE = [
+    '_csrf' => '6f4212aefd6b27d26b4eef52ec4926188585efae6c7b0bda06c585ba92fe9dcda:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"64_mLxaNlJUOIMBvFEFocI5uAiiXpyrm\";}'
+    'PHPBACKSESSID' => 'db441ebr8gs9vn03e14fpd4h96'
+    '_identity' => 'bb4ed43513d893acdcc758f238df482fb1fdc33ca2d7ef3480efc2ee9217db86a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[2,\"iWek1hgCUnxtmc9CGl2utlaaoOuF8vAX\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 2
+    'Empresa' => 'AIRTECH S.A.'
+    'LLYUZUKXCOUZVJNSHJXBVW' => [
+        'view' => 'empresas/index'
+        'title' => 'cargando datos empresas . . .'
+        'spinner' => 'spinner'
+    ]
+    'QueryFactura' => yii\db\ActiveQuery#1
+    (
+        [sql] => null
+        [on] => null
+        [joinWith] => [
+            0 => [
+                0 => [
+                    0 => 'facturaspies'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+            1 => [
+                0 => [
+                    0 => 'receptor'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+            2 => [
+                0 => [
+                    0 => 'puntoventa0'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+        ]
+        [select] => null
+        [selectOption] => null
+        [distinct] => null
+        [from] => null
+        [groupBy] => [
+            0 => 'empresaid'
+            1 => 'receptorid'
+            2 => 'puntoventa'
+            3 => 'comprobanteid'
+            4 => 'comprobantenro'
+            5 => 'letra'
+        ]
+        [join] => null
+        [having] => null
+        [union] => null
+        [params] => [
+            'empresaid' => '41'
+            'cae' => 0
+            'fchdde' => '20190304'
+            'fchhta' => '20190413'
+        ]
+        [yii\base\Component:_events] => []
+        [yii\base\Component:_behaviors] => []
+        [where] => [
+            0 => 'and'
+            1 => [
+                0 => 'and'
+                1 => 'facturasenc.empresaid = :empresaid and ifnull(cae,-1) > :cae'
+                2 => 'fechafactura >= :fchdde'
+            ]
+            2 => 'fechafactura <= :fchhta'
+        ]
+        [limit] => null
+        [offset] => null
+        [orderBy] => [
+            'comprobantenro' => 3
+            'letra' => 3
+        ]
+        [indexBy] => null
+        [modelClass] => 'frontend\\models\\Facturasenc'
+        [with] => null
+        [asArray] => null
+        [multiple] => null
+        [primaryModel] => null
+        [link] => null
+        [via] => null
+        [inverseOf] => null
+    )
+    'IPGMSUHUIEYRSSWKZZZMHBU' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'MOVRXPGNXKQKZOTCCGYAXJSBJB' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'DTSUJDTXMRGGVSJIXKMFWLNG' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'DUGDOZOWBXMREIOLVGRCZREUXTOE' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'FOLZGHZVFPQJOHVGEJTYNFYH' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'EIZBEYBNMUINRXDMRBEWNFNL' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'RAWOTJMGTESLETYTKTYSLCRZSXIGC' => [
+        'view' => 'empresas/index'
+        'title' => 'cargando datos empresas . . .'
+        'spinner' => 'spinner'
+    ]
+    'ICKNCJUHWPXTMXYIMNHATEEDVUA' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'DIDIWSGHPLAOFKIGKPWKWEXEL' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'TRXIVFCTBFZXKANBDZAAAHCHRU' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://localhost:8000/e-facturas/backend/web/index.php?r=site%2Fstate-index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'es-ES,es;q=0.9,en;q=0.8,gl;q=0.7,pt;q=0.6'
+    'HTTP_COOKIE' => '_csrf=6f4212aefd6b27d26b4eef52ec4926188585efae6c7b0bda06c585ba92fe9dcda%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%2264_mLxaNlJUOIMBvFEFocI5uAiiXpyrm%22%3B%7D; PHPBACKSESSID=db441ebr8gs9vn03e14fpd4h96; _identity=bb4ed43513d893acdcc758f238df482fb1fdc33ca2d7ef3480efc2ee9217db86a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22iWek1hgCUnxtmc9CGl2utlaaoOuF8vAX%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\VSShell\\Common7\\IDE\\;c:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\PrivateAssemblies\\;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Python27\\;C:\\Python27\\Scripts\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\PrivateAssemblies\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Java\\jdk1.8.0_181\\bin\\jarsigner;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Android\\android-sdk\\tools;C:\\Program Files (x86)\\Android\\android-sdk\\platform-tools;C:\\Program Files (x86)\\Android\\android-sdk\\build-tools\\26.0.3;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\nodejs\\;C:\\Gradle\\gradle-4.10.2\\bin;C:\\Users\\Leandro\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Leandro\\AppData\\Local\\atom\\bin;C:\\Users\\Leandro\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Leandro\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.6.28 Server at localhost Port 8000</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.6.28'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8000'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/e-facturas/backend/web/index.php'
+    'REMOTE_PORT' => '4337'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=facturasenc%2Findex'
+    'REQUEST_URI' => '/e-facturas/backend/web/index.php?r=facturasenc%2Findex'
+    'SCRIPT_NAME' => '/e-facturas/backend/web/index.php'
+    'PHP_SELF' => '/e-facturas/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1554312539.277
+    'REQUEST_TIME' => 1554312539
+]
+2019-04-03 19:31:35 [::1][2][db441ebr8gs9vn03e14fpd4h96][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Maximum execution time of 30 seconds exceeded' in C:\xampp\htdocs\e-facturas\vendor\yiisoft\yii2\db\Command.php:824
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2019-04-03 19:31:05 [::1][2][db441ebr8gs9vn03e14fpd4h96][info][application] $_GET = [
+    'r' => 'facturasenc/index'
+]
+
+$_POST = [
+    '_csrf' => 'VWkweGZyVDljXW8VKgo1dzkjZTcvPxZPEyx2FwU7YUwUAFkgFgsmVA=='
+    'FacturasForm' => [
+        'fchdde' => '01/04/2019'
+        'fchhta' => ''
+        'receptor' => ''
+        'comprobante' => '0'
+        'nrodde' => ''
+        'nrohta' => ''
+        'puntoventa' => ''
+        'notificada' => '-1'
+        'impresacli' => '-1'
+        'impresa' => '-1'
+    ]
+    'signup-button' => ''
+]
+
+$_COOKIE = [
+    '_csrf' => '6f4212aefd6b27d26b4eef52ec4926188585efae6c7b0bda06c585ba92fe9dcda:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"64_mLxaNlJUOIMBvFEFocI5uAiiXpyrm\";}'
+    'PHPBACKSESSID' => 'db441ebr8gs9vn03e14fpd4h96'
+    '_identity' => 'bb4ed43513d893acdcc758f238df482fb1fdc33ca2d7ef3480efc2ee9217db86a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[2,\"iWek1hgCUnxtmc9CGl2utlaaoOuF8vAX\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 2
+    'Empresa' => 'AIRTECH S.A.'
+    'LLYUZUKXCOUZVJNSHJXBVW' => [
+        'view' => 'empresas/index'
+        'title' => 'cargando datos empresas . . .'
+        'spinner' => 'spinner'
+    ]
+    'QueryFactura' => yii\db\ActiveQuery#1
+    (
+        [sql] => null
+        [on] => null
+        [joinWith] => [
+            0 => [
+                0 => [
+                    0 => 'facturaspies'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+            1 => [
+                0 => [
+                    0 => 'facturasmensajesnotificacion'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+            2 => [
+                0 => [
+                    0 => 'receptor'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+            3 => [
+                0 => [
+                    0 => 'puntoventa0'
+                ]
+                1 => true
+                2 => 'LEFT JOIN'
+            ]
+        ]
+        [select] => null
+        [selectOption] => null
+        [distinct] => null
+        [from] => null
+        [groupBy] => [
+            0 => 'empresaid'
+            1 => 'receptorid'
+            2 => 'puntoventa'
+            3 => 'comprobanteid'
+            4 => 'comprobantenro'
+            5 => 'letra'
+        ]
+        [join] => null
+        [having] => null
+        [union] => null
+        [params] => [
+            'empresaid' => '41'
+            'cae' => 0
+            'fchdde' => '2019-04-01'
+        ]
+        [yii\base\Component:_events] => []
+        [yii\base\Component:_behaviors] => []
+        [where] => [
+            0 => 'and'
+            1 => [
+                0 => 'and'
+                1 => 'facturasenc.empresaid = :empresaid and ifnull(cae,-1) > :cae'
+                2 => 'fechafactura >= :fchdde'
+            ]
+            2 => [
+                'facturasenc.empresaid' => '41'
+            ]
+        ]
+        [limit] => null
+        [offset] => null
+        [orderBy] => [
+            'comprobantenro' => 3
+            'letra' => 3
+        ]
+        [indexBy] => null
+        [modelClass] => 'frontend\\models\\Facturasenc'
+        [with] => null
+        [asArray] => null
+        [multiple] => null
+        [primaryModel] => null
+        [link] => null
+        [via] => null
+        [inverseOf] => null
+    )
+    'IPGMSUHUIEYRSSWKZZZMHBU' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'MOVRXPGNXKQKZOTCCGYAXJSBJB' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'DTSUJDTXMRGGVSJIXKMFWLNG' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'DUGDOZOWBXMREIOLVGRCZREUXTOE' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'FOLZGHZVFPQJOHVGEJTYNFYH' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'EIZBEYBNMUINRXDMRBEWNFNL' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'RAWOTJMGTESLETYTKTYSLCRZSXIGC' => [
+        'view' => 'empresas/index'
+        'title' => 'cargando datos empresas . . .'
+        'spinner' => 'spinner'
+    ]
+    'ICKNCJUHWPXTMXYIMNHATEEDVUA' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'DIDIWSGHPLAOFKIGKPWKWEXEL' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'TRXIVFCTBFZXKANBDZAAAHCHRU' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'QWOSGJDRQQBUBIAFQLERJEUJLDX' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'CXCTHJSROETRITJFCCHAHCPSCSL' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'PGJLREDVGWBULTCNMPWXWDVDJQZZ' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+    'EURMFUNBHNAXWYMHIDWBZGDPRU' => [
+        'view' => 'empresas/index'
+        'title' => 'cargando datos empresas . . .'
+        'spinner' => 'spinner'
+    ]
+    'HGKLDINBODXMGIBOWMOFCVNAB' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'HPDVPUNPJAPIORTHJOOQPQV' => [
+        'view' => 'facturasenc/notificar'
+        'title' => 'notificando facturas . . .'
+        'msg' => 'esto puede tardar algunos minutos'
+        'color' => 'success'
+    ]
+    'AXFBZDRNWWXZWYHRNCPIOENBKFW' => [
+        'view' => 'facturasenc/imprimir'
+        'title' => 'cargando datos facturas'
+        'msg' => 'esto puede tardar varios segundos'
+        'color' => 'warning'
+    ]
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '382'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://localhost:8000/e-facturas/backend/web/index.php?r=facturasenc%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'es-ES,es;q=0.9,en;q=0.8,gl;q=0.7,pt;q=0.6'
+    'HTTP_COOKIE' => '_csrf=6f4212aefd6b27d26b4eef52ec4926188585efae6c7b0bda06c585ba92fe9dcda%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%2264_mLxaNlJUOIMBvFEFocI5uAiiXpyrm%22%3B%7D; PHPBACKSESSID=db441ebr8gs9vn03e14fpd4h96; _identity=bb4ed43513d893acdcc758f238df482fb1fdc33ca2d7ef3480efc2ee9217db86a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22iWek1hgCUnxtmc9CGl2utlaaoOuF8vAX%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\VSShell\\Common7\\IDE\\;c:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\PrivateAssemblies\\;c:\\Program Files (x86)\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Python27\\;C:\\Python27\\Scripts\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\PrivateAssemblies\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Java\\jdk1.8.0_181\\bin\\jarsigner;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Android\\android-sdk\\tools;C:\\Program Files (x86)\\Android\\android-sdk\\platform-tools;C:\\Program Files (x86)\\Android\\android-sdk\\build-tools\\26.0.3;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\nodejs\\;C:\\Gradle\\gradle-4.10.2\\bin;C:\\Users\\Leandro\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Leandro\\AppData\\Local\\atom\\bin;C:\\Users\\Leandro\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Leandro\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.6.28 Server at localhost Port 8000</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.6.28'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8000'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/e-facturas/backend/web/index.php'
+    'REMOTE_PORT' => '4351'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=facturasenc%2Findex'
+    'REQUEST_URI' => '/e-facturas/backend/web/index.php?r=facturasenc%2Findex'
+    'SCRIPT_NAME' => '/e-facturas/backend/web/index.php'
+    'PHP_SELF' => '/e-facturas/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1554312665.79
+    'REQUEST_TIME' => 1554312665
+]

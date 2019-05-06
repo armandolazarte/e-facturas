@@ -3,11 +3,12 @@ return [
     'components' => [
 	'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=10.132.79.151;dbname=fe',
+            //'dsn' => 'mysql:host=10.132.79.151;dbname=fe',
+            'dsn' => 'mysql:host=138.197.101.226;dbname=fe',
             'username' => 'fe',
             'password' => 'pastatuti',
             'charset' => 'utf8',
-        ],        
+        ],
     'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
