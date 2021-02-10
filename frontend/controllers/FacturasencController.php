@@ -18,7 +18,6 @@ use frontend\models\Receptores;
 use frontend\models\Facturasnotas;
 use backend\models\FacturasVistaPublica;
 use backend\models\EmpresaUser;
-use backend\models\PuntosventaEmpresas;
 // use backend\models\FacturasForm;
 use backend\models\ModeloFactura;
 use backend\models\ModeloFacturas;
@@ -63,11 +62,7 @@ class FacturasencController extends Controller
     {
     	$this->isGuestGoHome();
     	
-        $receptor = Receptores::find()->where(['cuit' => User::findIdentity(yii::$app->user->id)->cuit])->all();
-
-        $receptor1 = $receptor[0]['receptorid'];
-        $receptor2 = isset($receptor[1]['receptorid']) ? $receptor[1]['receptorid'] : $receptor1;
-
+        $receptor = Receptores::find()->where(['cuit' => User::findIdentity(yii::$app->user->id)->cuit])->one();
         
         $ORDEN = [
                     'comprobantenro' => SORT_DESC,
@@ -82,7 +77,7 @@ class FacturasencController extends Controller
                             ->joinWith('facturaspies')
                             ->joinWith('empresa')
                             ->joinWith('puntoventa0')
-                            ->where('(receptorid = :receptorid1 or receptorid = :receptorid2) and ifnull(cae,-1) > :cae',['receptorid1'=>$receptor1,'receptorid2'=>$receptor2,'cae' => 0])
+                            ->where('receptorid = :receptorid and ifnull(cae,-1) > :cae',['receptorid'=>$receptor->receptorid,'cae' => 0])
                             ->groupBy(['empresaid', 'receptorid', 'puntoventa', 'comprobanteid', 'comprobantenro', 'letra'])
                             ->orderBy($ORDEN);
             if ($search->fchdde) {
@@ -106,7 +101,7 @@ class FacturasencController extends Controller
             if ($search->impresa != -1) {
                 $query->andWhere(['impresacliente'=>$search->impresa]);
             }
-            $query->andWhere('receptorid = :receptorid1 or receptorid = :receptorid2',['receptorid1'=>$receptor1,'receptorid2'=>$receptor2]);
+            $query->andWhere(['receptorid'=>$receptor->receptorid]);
 
 
             #$this->facturasenc->setQueryFactura($query);
@@ -134,13 +129,10 @@ class FacturasencController extends Controller
                     ];
             
             if ($receptor) {
-
-                //print_r($receptor->receptorid);
-                //exit();
                 $query = Facturasenc::find()
                             ->joinWith('facturaspies')
-                            ->where('(receptorid = :receptorid1 or receptorid = :receptorid2) and ifnull(cae,-1) > :cae',['receptorid1'=>$receptor1,'receptorid2'=>$receptor2,'cae' => 0])
-                            //->andWhere(['impresacliente'=>0])
+                            ->where('receptorid = :receptorid and ifnull(cae,-1) > :cae',['receptorid'=>$receptor->receptorid,'cae' => 0])
+                            ->andWhere(['impresacliente'=>0])
                             ->groupBy(['empresaid', 'receptorid', 'puntoventa', 'comprobanteid', 'comprobantenro', 'letra'])
                             ->orderBy($ORDEN);
 
@@ -177,7 +169,7 @@ class FacturasencController extends Controller
 		// si la key es NULL verifica que el usuario este logueado, sino lo saca de la vista
     	if ($key == null)
     		$this->isGuestGoHome();
-	   
+	
     	// si la key no tiene el formato de un hash sha256 verifica que el usuario este logueado, sino lo saca de la vista
     	if (!FacturasVistaPublica::isHash($key))
     		$this->isGuestGoHome();
@@ -200,19 +192,9 @@ class FacturasencController extends Controller
     	$this->layout = "factura";
     	
     	$user = EmpresaUser::findIdentity(yii::$app->user->id);
+    	$empresa = Empresas::find()->where(['empresaid'=>$this->findModel($id)->empresaid])->one();
+    	$modelo = ModeloFacturas::find()->where(['empresaid'=>$empresa->empresaid])->one();
         $model = $this->findModel($id);
-    	//$empresa = Empresas::find()->where(['empresaid'=>$model->empresaid])->one();
-    	
-
-        
-        
-        $empresa = PuntosventaEmpresas::getPuntoVentaEmpresaById($model->puntoventa, $model->empresaid);
-        
-        $modelo = ModeloFacturas::find()->where(['empresaid'=>$empresa->empresaid])
-                                        ->andWhere(['puntoventaid'=>$model->puntoventa])->one();
-        
-
-
 
     	// se comprueba que la empresa tenga un modelo de factura configurado
     	// sino muestra un mensaje de error.
@@ -220,30 +202,15 @@ class FacturasencController extends Controller
     		$mensaje = 'Su empresa proveedora no se encuentra registrada en este sitio web.';
     		return $this->redirect(['error', 'mensaje' => $mensaje]);
     	}
-    	// se busca el receptor de la factura
-    	$receptor = Receptores::find()->where(['receptorid'=>$model->receptorid])->one();
     	
-    	// si el cliente no presenta dni
-    	// si el cuit no es valido no lo muestra en la factura
-    	if ($receptor->documentoid == 99) {
-    		if (strlen($receptor->cuit) < 8 || !ctype_digit($receptor->cuit)) {
-    			$receptor->cuit = '';
-    		}
-    	}
-    	
+    	$factura = Facturasenc::findOne($id);
     	$pie = Facturaspie::find()->where(['facturaid'=>$id])->one();
 
         //        $model->letra = 'AASDFASFA';
         $letra_factura = ModeloFactura::getLetraFactura($model->letra);
     	
-    	$model->impresacliente = 1;
-    	$model->save();
-
-        foreach ($model as $clave => $valor) {
-            $model->$clave = utf8_decode($model->$clave);
-        }
-
-	$pie->formapagoid = ($pie->formapagoid == null) ? 2 : $pie->formapagoid;
+    	$factura->impresacliente = 1;
+    	$factura->save();
     	
         return $this->render('view', [
             'letra_factura' => $letra_factura,            
@@ -255,12 +222,13 @@ class FacturasencController extends Controller
             'pie' => $pie,
         	'formaspago' => Formaspagofe::find()->where(['pagoid'=>$pie->formapagoid])->one(),
         	'nota' => Facturasnotas::find()->where(['facturaid'=>$id])->all(),
-        	'comprobante' => Tipocomprobantefe::find()->where(['comprobanteid'=>$model->comprobanteid])->one(),
+        	'comprobante' => Tipocomprobantefe::find()->where(['comprobanteid'=>$factura->comprobanteid])->one(),
             'empresa' => $empresa,
         	'provincias' => Provinciasfe::find()->where(['provinciaid'=>$empresa->provinciaid])->one(),
-            'puntoventa' => Puntosventa::find()->where(['puntoventaid'=>$model->puntoventa])->one(),
-        	'receptor' => $receptor,
-            'responsablecli' => Tiporesponsablefe::find()->where(['responsableid'=>$model->responsableid])->one(),
+            'puntoventa' => Puntosventa::find()->where(['puntoventaid'=>$this->findModel($id)->puntoventa])->one(),
+        	'responsable' => Tiporesponsablefe::find()->where(['responsableid'=>$this->findModel($id)->responsableid])->one(),
+            'receptor' => Receptores::find()->where(['receptorid'=>$this->findModel($id)->receptorid])->one(),
+            'responsablecli' => Tiporesponsablefe::find()->where(['responsableid'=>Receptores::find()->where(['receptorid'=>$this->findModel($id)->receptorid])->one()->responsableid])->one(),
         ]);
     }
 
@@ -288,8 +256,7 @@ class FacturasencController extends Controller
     		return $this->redirect(['error', 'mensaje' => $mensaje]);
     	}
     	
-    	//$empresa = Empresas::find()->where(['empresaid'=>$EMPRESAID])->one();
-        $empresa = PuntosventaEmpresas::getPuntoVentaEmpresaById($model->puntoventa, $model->empresaid);
+    	$empresa = Empresas::find()->where(['empresaid'=>$EMPRESAID])->one();
     	 
     	$facturasimprimir = [];
     	foreach ($QUERY as $key) {
@@ -306,7 +273,6 @@ class FacturasencController extends Controller
     		$comprobante = Tipocomprobantefe::find()->where(['comprobanteid'=>$factura->comprobanteid])->one();
     		$puntoventa = Puntosventa::find()->where(['puntoventaid'=>$factura->puntoventa])->one();
     		$pie = Facturaspie::find()->where(['facturaid'=>$key->facturaid])->one();
-			$pie->formapagoid = ($pie->formapagoid == null) ? 2 : $pie->formapagoid;
     		$formaspago = Formaspagofe::find()->where(['pagoid'=>$pie->formapagoid])->one();
     		$nota = Facturasnotas::find()->where(['facturaid'=>$key->facturaid])->all();
     
@@ -323,10 +289,6 @@ class FacturasencController extends Controller
     		$factura->impresacliente = 1;
     		$factura->save();
     		
-            foreach ($model as $clave => $valor) {
-                $model->$clave = utf8_decode($model->$clave);
-            }
-            
     		$facturasimprimir[] = [
     				'id' => $key->facturaid,
                     'letra_factura' => $letra_factura, 
@@ -372,7 +334,6 @@ class FacturasencController extends Controller
     	return $this->render('imprimir', [
     			'imprimir' => $facturasimprimir,
     			'modelo' => $modelo,
-                'empresa' => $empresa,
     	]
     	);
     }
@@ -393,15 +354,15 @@ class FacturasencController extends Controller
     {
     	$this->isGuestGoHome();
     	
-//         $model = new Facturasenc();
+        $model = new Facturasenc();
 
-//         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//             return $this->redirect(['view', 'id' => $model->facturaid]);
-//         } else {
-//             return $this->render('create', [
-//                 'model' => $model,
-//             ]);
-//         }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->facturaid]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
     }
 
     /**
@@ -414,15 +375,15 @@ class FacturasencController extends Controller
     {
     	$this->isGuestGoHome();
     	
-//         $model = $this->findModel($id);
+        $model = $this->findModel($id);
 
-//         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//             return $this->redirect(['view', 'id' => $model->facturaid]);
-//         } else {
-//             return $this->render('update', [
-//                 'model' => $model,
-//             ]);
-//         }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->facturaid]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
     }
 
     /**
@@ -435,9 +396,9 @@ class FacturasencController extends Controller
     {
     	$this->isGuestGoHome();
     	
-//         $this->findModel($id)->delete();
+        $this->findModel($id)->delete();
 
-//         return $this->redirect(['index']);
+        return $this->redirect(['index']);
     }
 
     /**
