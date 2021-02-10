@@ -170,7 +170,7 @@ class FacturasencController extends Controller
 		// si la key es NULL verifica que el usuario este logueado, sino lo saca de la vista
     	if ($key == null)
     		$this->isGuestGoHome();
-	
+	   
     	// si la key no tiene el formato de un hash sha256 verifica que el usuario este logueado, sino lo saca de la vista
     	if (!FacturasVistaPublica::isHash($key))
     		$this->isGuestGoHome();
@@ -193,9 +193,19 @@ class FacturasencController extends Controller
     	$this->layout = "factura";
     	
     	$user = EmpresaUser::findIdentity(yii::$app->user->id);
-    	$empresa = Empresas::find()->where(['empresaid'=>$this->findModel($id)->empresaid])->one();
-    	$modelo = ModeloFacturas::find()->where(['empresaid'=>$empresa->empresaid])->one();
         $model = $this->findModel($id);
+    	//$empresa = Empresas::find()->where(['empresaid'=>$model->empresaid])->one();
+    	
+
+        
+        
+        $empresa = PuntosventaEmpresas::getPuntoVentaEmpresaById($model->puntoventa, $model->empresaid);
+        
+        $modelo = ModeloFacturas::find()->where(['empresaid'=>$empresa->empresaid])
+                                        ->andWhere(['puntoventaid'=>$model->puntoventa])->one();
+        
+
+
 
     	// se comprueba que la empresa tenga un modelo de factura configurado
     	// sino muestra un mensaje de error.
@@ -203,15 +213,30 @@ class FacturasencController extends Controller
     		$mensaje = 'Su empresa proveedora no se encuentra registrada en este sitio web.';
     		return $this->redirect(['error', 'mensaje' => $mensaje]);
     	}
+    	// se busca el receptor de la factura
+    	$receptor = Receptores::find()->where(['receptorid'=>$model->receptorid])->one();
     	
-    	$factura = Facturasenc::findOne($id);
+    	// si el cliente no presenta dni
+    	// si el cuit no es valido no lo muestra en la factura
+    	if ($receptor->documentoid == 99) {
+    		if (strlen($receptor->cuit) < 8 || !ctype_digit($receptor->cuit)) {
+    			$receptor->cuit = '';
+    		}
+    	}
+    	
     	$pie = Facturaspie::find()->where(['facturaid'=>$id])->one();
 
         //        $model->letra = 'AASDFASFA';
         $letra_factura = ModeloFactura::getLetraFactura($model->letra);
     	
-    	$factura->impresacliente = 1;
-    	$factura->save();
+    	$model->impresacliente = 1;
+    	$model->save();
+
+        foreach ($model as $clave => $valor) {
+            $model->$clave = utf8_decode($model->$clave);
+        }
+
+	$pie->formapagoid = ($pie->formapagoid == null) ? 2 : $pie->formapagoid;
     	
         return $this->render('view', [
             'letra_factura' => $letra_factura,            
@@ -223,13 +248,12 @@ class FacturasencController extends Controller
             'pie' => $pie,
         	'formaspago' => Formaspagofe::find()->where(['pagoid'=>$pie->formapagoid])->one(),
         	'nota' => Facturasnotas::find()->where(['facturaid'=>$id])->all(),
-        	'comprobante' => Tipocomprobantefe::find()->where(['comprobanteid'=>$factura->comprobanteid])->one(),
+        	'comprobante' => Tipocomprobantefe::find()->where(['comprobanteid'=>$model->comprobanteid])->one(),
             'empresa' => $empresa,
         	'provincias' => Provinciasfe::find()->where(['provinciaid'=>$empresa->provinciaid])->one(),
-            'puntoventa' => Puntosventa::find()->where(['puntoventaid'=>$this->findModel($id)->puntoventa])->one(),
-        	'responsable' => Tiporesponsablefe::find()->where(['responsableid'=>$this->findModel($id)->responsableid])->one(),
-            'receptor' => Receptores::find()->where(['receptorid'=>$this->findModel($id)->receptorid])->one(),
-            'responsablecli' => Tiporesponsablefe::find()->where(['responsableid'=>Receptores::find()->where(['receptorid'=>$this->findModel($id)->receptorid])->one()->responsableid])->one(),
+            'puntoventa' => Puntosventa::find()->where(['puntoventaid'=>$model->puntoventa])->one(),
+        	'receptor' => $receptor,
+            'responsablecli' => Tiporesponsablefe::find()->where(['responsableid'=>$model->responsableid])->one(),
         ]);
     }
 
