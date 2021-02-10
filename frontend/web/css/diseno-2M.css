@@ -815,11 +815,21 @@ content: "M";
 .container-2M .recuadroleyenda {
 font-size: 0.42em;
 text-align: center;
-//border: 2px solid #939598;
-//border: 2px solid #FFFFFF;
+border: 2px solid #939598;
+border: 2px solid #FFFFFF;
 left: 537px;
 top: 110px;
 width: 47px;
 height: 71px;
 display: block;
+}
+.container-2M .qr {
+  align-content: flex-end; 
+  top: 1120px;
+  left: 60px;
+  width: 61px;
+  height: 61px;
+  background: url('a.png') no-repeat 0 0;
+  display: block;
+
 }

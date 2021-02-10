@@ -62,13 +62,13 @@ class FacturasencController extends Controller
     public function actionIndex()
     {
     	$this->isGuestGoHome();
-
+    	
         $receptor = Receptores::find()->where(['cuit' => User::findIdentity(yii::$app->user->id)->cuit])->all();
 
         $receptor1 = $receptor[0]['receptorid'];
         $receptor2 = isset($receptor[1]['receptorid']) ? $receptor[1]['receptorid'] : $receptor1;
 
-
+        
         $ORDEN = [
                     'comprobantenro' => SORT_DESC,
                     'letra' => SORT_DESC,
@@ -116,7 +116,7 @@ class FacturasencController extends Controller
                     'query' => $query,
             		'pagination' => [
             				'pagesize' => -1,
-            		],
+            		],            		
                     //'sort' => ['defaultOrder' => ['facturaid' => SORT_DESC]],
                 ]);
 
@@ -132,7 +132,7 @@ class FacturasencController extends Controller
                         'comprobantenro' => SORT_DESC,
                         'letra' => SORT_DESC,
                     ];
-
+            
             if ($receptor) {
 
                 //print_r($receptor->receptorid);
@@ -154,16 +154,16 @@ class FacturasencController extends Controller
                 return $this->render('index', [
                     'dataProvider' => $dataProvider,#'model'=>$model,
                     'search' => $search,
-                ]);
-            }
+                ]);    
+            }   
             else {
                 return $this->render('index', [
                     'msg' => 'No tiene facturas para el DNI/CUIT configurado!',
                     'dataProvider' => '',
                     'search' => $search,
-                ]);
-            }
-        }
+                ]);   
+            }     
+        }        
     }
 
     /**
@@ -172,26 +172,23 @@ class FacturasencController extends Controller
      * @return mixed
      */
     public function actionView($id, $key=null)
-    {
-
+    {        
+    	
 		// si la key es NULL verifica que el usuario este logueado, sino lo saca de la vista
     	if ($key == null)
     		$this->isGuestGoHome();
-
+	   
     	// si la key no tiene el formato de un hash sha256 verifica que el usuario este logueado, sino lo saca de la vista
     	if (!FacturasVistaPublica::isHash($key))
     		$this->isGuestGoHome();
-
+    	
     	// si la key es un hash sha256 ...
     	if ($key) {
     		$view = FacturasVistaPublica::find()->where(['key'=>$key])->one();
-		//print_r($view);
-		//exit();
     		// si la key existe en la tabla FacturasVistaPublica
     		// comprueba que la id de la tabla sea igual a la $id recibida por GET
     		if ($view) {
-    			if ($id != $view->facturaid) {
-
+    			if ($id !== $view->facturaid) {
     				return $this->render('errorview');
     			}
     		}
@@ -201,19 +198,19 @@ class FacturasencController extends Controller
     	}
 
     	$this->layout = "factura";
-
+    	
     	$user = EmpresaUser::findIdentity(yii::$app->user->id);
         $model = $this->findModel($id);
     	//$empresa = Empresas::find()->where(['empresaid'=>$model->empresaid])->one();
+    	
 
-
-
-
+        
+        
         $empresa = PuntosventaEmpresas::getPuntoVentaEmpresaById($model->puntoventa, $model->empresaid);
-
+        
         $modelo = ModeloFacturas::find()->where(['empresaid'=>$empresa->empresaid])
                                         ->andWhere(['puntoventaid'=>$model->puntoventa])->one();
-
+        
 
 
 
@@ -225,7 +222,7 @@ class FacturasencController extends Controller
     	}
     	// se busca el receptor de la factura
     	$receptor = Receptores::find()->where(['receptorid'=>$model->receptorid])->one();
-
+    	
     	// si el cliente no presenta dni
     	// si el cuit no es valido no lo muestra en la factura
     	if ($receptor->documentoid == 99) {
@@ -233,12 +230,12 @@ class FacturasencController extends Controller
     			$receptor->cuit = '';
     		}
     	}
-
+    	
     	$pie = Facturaspie::find()->where(['facturaid'=>$id])->one();
 
         //        $model->letra = 'AASDFASFA';
         $letra_factura = ModeloFactura::getLetraFactura($model->letra);
-
+    	
     	$model->impresacliente = 1;
     	$model->save();
 
@@ -247,9 +244,9 @@ class FacturasencController extends Controller
         }
 
 	$pie->formapagoid = ($pie->formapagoid == null) ? 2 : $pie->formapagoid;
-
+    	
         return $this->render('view', [
-            'letra_factura' => $letra_factura,
+            'letra_factura' => $letra_factura,            
             'modelo' => $modelo,
             'model' => $model,
             'tributo' => Facturastributo::find()->where(['facturaid'=>$id])->all(),
@@ -271,29 +268,29 @@ class FacturasencController extends Controller
     public function actionImprimir()
     {
     	$this->isGuestGoHome();
-
+    	 
     	$this->layout = "factura";
-
+    	 
 		$QUERY = Yii::$app->session->get('QueryFactura')->all();
 
 		if (!$QUERY) {
 			$mensaje = 'No existen facturas para los filtros aplicados previamente, vuelva a intentarlo.';
 			return $this->redirect(['error', 'mensaje' => $mensaje]);
-		}
-
+		}		
+		
     	$EMPRESAID = $QUERY[0]['empresaid'];
     	$modelo = ModeloFacturas::find()->where(['empresaid'=>$EMPRESAID])->one();
-
+    	
     	// se comprueba que la empresa tenga un modelo de factura configurado
     	// sino muestra un mensaje de error.
     	if ($modelo == null) {
     		$mensaje = 'Su empresa proveedora no se encuentra registrada en este sitio web.';
     		return $this->redirect(['error', 'mensaje' => $mensaje]);
     	}
-
+    	
     	//$empresa = Empresas::find()->where(['empresaid'=>$EMPRESAID])->one();
         $empresa = PuntosventaEmpresas::getPuntoVentaEmpresaById($model->puntoventa, $model->empresaid);
-
+    	 
     	$facturasimprimir = [];
     	foreach ($QUERY as $key) {
     		$model = Facturasenc::find()->where(['facturaid'=>$key->facturaid])->one();
@@ -312,9 +309,9 @@ class FacturasencController extends Controller
 			$pie->formapagoid = ($pie->formapagoid == null) ? 2 : $pie->formapagoid;
     		$formaspago = Formaspagofe::find()->where(['pagoid'=>$pie->formapagoid])->one();
     		$nota = Facturasnotas::find()->where(['facturaid'=>$key->facturaid])->all();
-
+    
             $letra_factura = ModeloFactura::getLetraFactura($model->letra);
-
+    
     		$detalle = [];
     		foreach ($item as $i) {
     			$detalle[] = ['codigo' => $i->codigo,
@@ -322,17 +319,17 @@ class FacturasencController extends Controller
     					'preciounitario' => $i->preciounitario,'subtotal' => $i->subtotal,
     			];
     		}
-
+    
     		$factura->impresacliente = 1;
     		$factura->save();
-
+    		
             foreach ($model as $clave => $valor) {
                 $model->$clave = utf8_decode($model->$clave);
             }
-
+            
     		$facturasimprimir[] = [
     				'id' => $key->facturaid,
-                    'letra_factura' => $letra_factura,
+                    'letra_factura' => $letra_factura, 
     				'comprobantenro' => $model->comprobantenro,
                     'comprobante_descripcion' => $comprobante->descripcion,
     				'clienteid' => $model->clienteid,
@@ -367,10 +364,11 @@ class FacturasencController extends Controller
                     'url' => $empresa->url,
     				'comprobantecodigo' => $comprobante->codigo,
     				'formapago' => $formaspago->descripcion,
-    				'nota' => $nota,
+                    'nota' => $nota,
+                    'tiporesponsable' => $receptor->documentoid,
     		];
     	}
-
+    
     	return $this->render('imprimir', [
     			'imprimir' => $facturasimprimir,
     			'modelo' => $modelo,
@@ -378,11 +376,11 @@ class FacturasencController extends Controller
     	]
     	);
     }
-
+    
     public function actionError($mensaje=null)
     {
 //     	$this->isGuestGoHome();
-
+    	 
     	return $this->render('error', ['mensaje' => $mensaje]);
     }
 
@@ -394,7 +392,7 @@ class FacturasencController extends Controller
     public function actionCreate()
     {
     	$this->isGuestGoHome();
-
+    	
 //         $model = new Facturasenc();
 
 //         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -415,7 +413,7 @@ class FacturasencController extends Controller
     public function actionUpdate($id)
     {
     	$this->isGuestGoHome();
-
+    	
 //         $model = $this->findModel($id);
 
 //         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -436,7 +434,7 @@ class FacturasencController extends Controller
     public function actionDelete($id)
     {
     	$this->isGuestGoHome();
-
+    	
 //         $this->findModel($id)->delete();
 
 //         return $this->redirect(['index']);
@@ -452,7 +450,7 @@ class FacturasencController extends Controller
     protected function findModel($id)
     {
 //     	$this->isGuestGoHome();
-
+    	
         if (($model = Facturasenc::findOne($id)) !== null) {
             return $model;
         } else {

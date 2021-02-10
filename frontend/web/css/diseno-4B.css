@@ -40,7 +40,7 @@ page-break-after: auto;
   display: block;
 }
 
-.container-4B .direccion::after, .container-4B .cod-postal::after,
+.container-4B .direccion::after, .container-4B .cod-postal::after, 
 .container-4B .telefono::after, .container-4B .email::after, .container-4B .localidad::after{
   content: ":";
 }
@@ -580,14 +580,14 @@ content: "B";
 
 .container-4B .impuesto4 {
   top: 1060px;
-  left: 260px;
+  left: 478px;
   width: 102px;
   font-size: 0.75em;
   height: 22px;
   background-color: #939598;
   padding-top: 1px;
   text-align: center;
-  display: block;
+  display: none;
   border-radius: 11px;
   color: #fff;
 }
@@ -682,14 +682,14 @@ content: "B";
 
 .container-4B .impuesto42 {
   top: 1086px;
-  left: 260px;
+  left: 478px;
   width: 102px;
   font-size: 0.75em;
   height: 24px;
   background-color: #BCBDC0;
   padding-top: 9px;
   text-align: center;
-  display: block;
+  display: none;
   border-radius: 11px;
   color: #000;
   font-weight: bold;
@@ -898,7 +898,7 @@ content: "B";
   top: 410px;
   left: 230px;
   font-size: 0.80em;
-  font-weight: bold;
+  font-weight: bold;  
   display: block;
 }
 
@@ -910,4 +910,14 @@ content: "B";
   font-size: 0.70em;
   display: block;
   z-index: 999;
+}
+.container-4B .qr {
+  align-content: flex-end; 
+  top:1130px;
+  left: 55px;
+  width: 61px;
+  height: 61px;
+  background: url('a.png') no-repeat 0 0;
+  display: block;
+
 }

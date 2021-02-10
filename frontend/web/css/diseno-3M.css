@@ -895,3 +895,13 @@ content: "A";
 content: "M";
 }
 
+.container-3M .qr {
+  align-content: flex-end; 
+  top: 1150px;
+  left: 70px;
+  width: 61px;
+  height: 61px;
+  background: url('a.png') no-repeat 0 0;
+  display: block;
+
+}

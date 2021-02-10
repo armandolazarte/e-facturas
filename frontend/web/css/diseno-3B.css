@@ -147,7 +147,7 @@ content: "B";
   top: 99px;
   left: 461px;
   font-size: 0.5em;
-  font-weight: bold;
+  font-weight: bold;  
   display: block;
 }
 
@@ -155,7 +155,7 @@ content: "B";
   top: 99px;
   left: 495px;
   font-size: 0.5em;
-  font-weight: bold;
+  font-weight: bold;  
   display: block;
 }
 
@@ -502,14 +502,14 @@ content: "B";
 
 .container-3B .impuesto4 {
   top: 1070px;
-  left: 257px;
+  left: 488px;
   width: 102px;
   font-size: 0.75em;
   height: 22px;
   background-color: #939598;
   padding-top: 1px;
   text-align: center;
-  display: block;
+  display: none;
   border-radius: 11px;
   color: #fff;
 }
@@ -604,14 +604,14 @@ content: "B";
 
 .container-3B .impuesto42 {
   top: 1096px;
-  left: 257px;
+  left: 488px;
   width: 102px;
   font-size: 0.75em;
   height: 24px;
   background-color: #BCBDC0;
   padding-top: 9px;
   text-align: center;
-  display: block;
+  display: none;
   border-radius: 11px;
   color: #000;
   font-weight: bold;
@@ -883,4 +883,14 @@ content: "B";
   font-size: 0.57em;
   display: block;
   z-index: 999;
+}
+.container-3B .qr {
+  align-content: flex-end; 
+  top: 1150px;
+  left: 70px;
+  width: 61px;
+  height: 61px;
+  background: url('a.png') no-repeat 0 0;
+  display: block;
+
 }

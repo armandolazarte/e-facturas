@@ -740,7 +740,6 @@ content: "A";
 .container-4A .barcode img{
   display: block;
 }
-
 .container-4A .barcode-number {
   top: 1172px;
   font-size: 0.65em;
@@ -855,4 +854,15 @@ content: "A";
   font-size: 0.70em;
   display: block;
   z-index: 999;
+}
+
+.container-4A .qr {
+  align-content: flex-end; 
+  top:1130px;
+  left: 55px;
+  width: 61px;
+  height: 61px;
+  background: url('a.png') no-repeat 0 0;
+  display: block;
+
 }

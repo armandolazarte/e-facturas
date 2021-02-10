@@ -24,7 +24,7 @@ page-break-after: auto;
 
 
 .container-3M .logo {
-  top: 50px;
+  top: 60px;
   left: 120px;
   width: 235px;
   height: 75px;
@@ -895,3 +895,13 @@ content: "A";
 content: "M";
 }
 
+.container-3A .qr {
+  align-content: flex-end; 
+  top: 1150px;
+  left: 70px;
+  width: 61px;
+  height: 61px;
+  background: url('a.png') no-repeat 0 0;
+  display: block;
+
+}
