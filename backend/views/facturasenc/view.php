@@ -5,6 +5,7 @@ use common\models\Barcode;
 use common\models\Numbers;
 use yii\helpers\Html;
 use yii\helpers\Url;
+
 ?>
 
 
@@ -14,22 +15,19 @@ use yii\helpers\Url;
 
 // ---------------- VARIABLES LOCALES PHP --------------------------
 
-//se arma la ruta del logo empresa
+//se arma la ruta del logo empresa 
 //$url_logo_empresa = Url::base('http') . '/' . $modelo->file;
-
-
 $m = '_modelo_' . $modelo->modelo . '.';
-
 $archivo = str_replace('.', $m, $modelo->file);
 $url_logo_empresa = Url::base('http') . '/' . $archivo;
 
 //modelo de factura
 $MODELO = $modelo->modelo + 1;
-
 $number = new Numbers();
 
+
 // se obtiene el CODIGO DE BARRAS
-$fecha_barcode = str_replace('-', '', explode(' ', $pie->caevencimiento)[0]);
+$fecha_barcode = str_replace('-', '', explode(' ', $model->fechafactura)[0]); 
 $comprobante_fe = substr($comprobante->codigo, 1);
 
 $BARCODE_PHP = Barcode::getCode(
@@ -40,6 +38,49 @@ $BARCODE_PHP = Barcode::getCode(
                 $fecha_barcode
             );
 // ---------------- VARIABLES LOCALES PHP --------------------------
+
+// ---------------- CODIGO QR AFIP --------------------------
+include '../../common/phpqrcode/qrlib.php';
+
+$str_json_datos = '{"ver":1,"fecha":"'.substr($model->fechafactura,0,10).'"';
+$str_json_datos = $str_json_datos . ',"cuit":'.$empresa->nrocuit.'"' ;
+$str_json_datos = $str_json_datos . ',"ptoVta":'.(int)$puntoventa->puntoventa ;
+$str_json_datos = $str_json_datos . ',"tipoCmp":'.(int)$comprobante->codigo ;
+$str_json_datos = $str_json_datos . ',"nroCmp":'.$model->comprobantenro ;
+$str_json_datos = $str_json_datos . ',"importe":'.number_format($pie->importetotal, 2, '', '') ;
+$str_json_datos = $str_json_datos . ',"moneda":"PES","ctz":1' ;
+$str_json_datos = $str_json_datos . ',"tipoDocRec":'.$receptor->documentoid ;
+$str_json_datos = $str_json_datos . ',"nroDocRec":'.$receptor->cuit ;
+$str_json_datos = $str_json_datos . ',"tipoCodAut":"E"' ;
+$str_json_datos = $str_json_datos . ',"codAut":'.$pie->cae.'}' ;
+
+//echo $str_json_datos;
+$str_facturaqr = base64_encode ($str_json_datos);
+$url = 'https://www.afip.gob.ar/fe/qr/?p='.$str_facturaqr;
+
+echo '<div name="datosqr" style="display:none">';
+print_r($str_json_datos);
+print_r($str_facturaqr);
+print_r($url);
+echo '</div>';
+// $str_facturaqr = base64_encode ('{"ver":1,"fecha":"2021-02-08","cuit":30689429358,"ptoVta":5,"tipoCmp":1,"nroCmp":28594,"importe":9546199,"moneda":"PES","ctz":1,"tipoDocRec":80,"nroDocRec":23131388349,"tipoCodAut":"E","codAut":71068426760926}') ;
+//  eyJ2ZXIiOjEsImZlY2hhIjoiMjAyMS0wMi0wOCIsImN1aXQiOjMwNjg5NDI5MzU4LCJwdG9WdGEiOjUsInRpcG9DbXAiOjYsIm5yb0NtcCI6MTM5ODk3LCJpbXBvcnRlIjoyNzU1MCwibW9uZWRhIjoiUEVTIiwiY3R6IjoxLCJ0aXBvRG9jUmVjIjo5OSwibnJvRG9jUmVjIjowLCJ0aXBvQ29kQXV0IjoiRSIsImNvZEF1dCI6NzEwNjg0NTQ3MTQ0ODF9';
+
+$path = 'images/'.$pie->cae."_afipqr.png"; 
+//$file = $path.uniqid().".png"; 
+$file = $path;
+//$file = "images/qr.png"; 
+  
+// $ecc stores error correction capability('L') 
+$ecc = 'L'; 
+$pixel_Size = 1; 
+$frame_Size = 0; 
+  
+// Generates QR Code and Stores it in directory given 
+QRcode::png($url, $file, $ecc, $pixel_Size, $frame_Size); 
+//echo QRcode::png($str_facturaqr);
+// Displaying the stored QR code from directory 
+// ---------------- CODIGO QR AFIP --------------------------
 
 ?>
 
@@ -73,11 +114,11 @@ $BARCODE_PHP = Barcode::getCode(
         <div class="separador3">-</div>
         <div class="separador4">-</div>
         <div class="separador5">-</div>
-        <div class="iva-responsable-inscripto"><?= $empresa->responsableid == 6 ? 'Responsable Monotributo':'Responsable Inscripto'; ?></div>
+        <div class="iva-responsable-inscripto">IVA Responsable Inscripto</div>
         <div class="fondo-tipo"></div>
         <div class="tipo"></div>
         <div class="codigo">C&Oacute;DIGO</div>
-        <div class="recuadroleyenda"> La operaci&oacute;n igual o mayor a un mil pesos ($ 1.000.-) est&aacute; sujeta a retenci&oacute;n </div>
+        <div class="recuadroleyenda"> La operaci&oacute;n igual o mayor a un mil pesos ($ 1.000.-) est&aacute; sujeta a retenci&oacute;n </div>        
         <div class="no"><?= $comprobante->codigo ?></div>
         <div class="factura"><?= $comprobante->descripcion?></div>
         <div class="numero">N&deg;</div>
@@ -109,7 +150,7 @@ $BARCODE_PHP = Barcode::getCode(
         <div class="ingreso-bruto5"></div>
         <div class="localidad3">Localidad:</div>
         <div class="localidad4"><?= $model->localidad ?></div>
-
+        
         <div class="iva">I.V.A.:</div>
         <!--
         <div class="iva3">Responsable Inscripto</div>
@@ -135,16 +176,16 @@ $BARCODE_PHP = Barcode::getCode(
         <ul class="lista-productos">
             <?php foreach ($item as $i) { ?>
                 <li>
-
+                    
                     <span class="cantidad-cell"><?= $i->cantidad ?></span>
                     <span class="detalle-cell"><?= Formato::utf8_decode_all($i->descripcion) ?></span>
-                    <span class="unitario-cell"><?= '$'.number_format($i->preciounitario, 3, ',', '.') ?></span>
-
+                    <span class="unitario-cell"><?= '$'.number_format($i->preciounitario, 2, ',', '.') ?></span>
+                    
                     <span class="precio-total-cell"><?= '$'.number_format($i->subtotal, 2, ',', '.') ?></span>
                 </li>
-
+  
              <?php } ?>
-
+            
 
         </ul>
 <!--                                 Formato::concatenar($array, $campo, $separador) -->
@@ -157,38 +198,38 @@ $BARCODE_PHP = Barcode::getCode(
         <div class="iva5">IVA </div>
         <div class="total">TOTAL</div>
         <div class="subtotal2"><?= '$'.number_format(($pie->importegravado + $pie->importenogravado), 2, ',', '.') ?></div>
-
+        
 
         <div class="impuesto12">
-        <?php
+        <?php 
           $importe = Impuestos::getImporte($tributo,'IIBB',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
-        </div>
-
+        </div>        
+        
         <div class="impuesto22">
-        <?php
+        <?php 
           $importe = Impuestos::getImporte($tributo,'IIBB2',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
         </div>
-
+        
         <div class="impuesto32">
-        <?php
+        <?php 
           $importe = Impuestos::getImporte($tributo,'Impuestos Municipales',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
         </div>
-
+        
         <div class="impuesto42">
-        <?php
+        <?php 
           $importe = Impuestos::getImporte($tributo,'Impuestos Internos',1);
           echo ($importe != '') ? '$'. number_format($importe, 2, ',', '.') : '-';
         ?>
         </div>
-
+        
         <div class="iva6">
-        <?= ($pie->importeiva > 0) ? '$'. number_format($pie->importeiva, 2, ',', '.') : '-' ?>
+        <?= ($pie->importeiva > 0) ? '$'. number_format($pie->importeiva, 2, ',', '.') : '-' ?>        
         </div>
 
 
@@ -196,7 +237,7 @@ $BARCODE_PHP = Barcode::getCode(
         <div class="total2"><?= '$'. number_format($pie->importetotal, 2, ',', '.') ?></div>
 
 
-	<div class="razon-social-emite2"></div>
+	<div class="razon-social-emite2"></div>    
         <div class="numeros-letras"><?= 'SON PESOS: ' . $number->to_word(number_format($pie->importetotal, 2, ',', '.')) ?></div>
 
 <!--         <div class="exp-hab">Exp. Hab. N&deg;</div> -->
@@ -207,22 +248,20 @@ $BARCODE_PHP = Barcode::getCode(
 <!--         <div class="al2">0001-00000700</div> -->
         <div class="fecha-impresion">Fecha de impresi&oacute;n:</div>
         <div class="fecha-impresion2"><?= date('d/m/Y')?></div>
-
+        
         <div class="reparto-frec"></div>
-        <div class="reparto-frec2"><?= $model->reparto . ' ' . $model->frecuencia ?></div>
-
+        <div class="reparto-frec2"><?= $model->reparto . ' ' . $model->frecuencia ?></div>        
+        
         <div class="orientacion-consumidor_">Orientaci&oacute;n al consumidor Provincia de Buenos Aires 0800-222-9042</div>
 
+        <!-- <div class="qr" style="background: url('<?= Url::base('http') . '/images/qr.png';?>') no-repeat 0 0"></div>       -->
+        <div class="qr" style="background: url('<?= $file?>') no-repeat 0 0"></div>      
+        
 
 
-
-
-
-
-<div class="logo_pf" style="background: url('<?= Url::base('http') . '/images/rapipago.png';?>') no-repeat 0 0"></div>
-
+<div class="logo_pf" style="background: url('<?= Url::base('http') . '/images/rapipago.png';?>') no-repeat 0 0"></div> 
 		          <div id="barcode_COD128">
-		              <svg class="barcode_new_128"
+		              <svg class="barcode_new_128" 
 		                jsbarcode-format="CODE128"
 		                jsbarcode-value="<?= $BARCODE_PHP; ?>"
 		                jsbarcode-textmargin="0"
@@ -232,7 +271,7 @@ $BARCODE_PHP = Barcode::getCode(
 		                jsbarcode-fontoptions="bold">
 		              </svg>
 		          </div>
-
+		        
 
                  <div id="barcode_ITF">
                       <svg class="barcode_new_ITF"
@@ -245,31 +284,31 @@ $BARCODE_PHP = Barcode::getCode(
                         jsbarcode-fontoptions="bold">
                       </svg>
                   </div>
+              
 
-
-
+                  
 
 
 	        <div class="barcode"><img id="barcode"/></div>
 	        <div class="cai">CAE.:</div>
 	        <div class="cai2"><?= $pie->cae ?></div>
 	        <div class="vencimiento-cai3">Vto. CAE: <?= Formato::fecha($pie->caevencimiento) ?></div>
-
+	        
 	        <div class="leyenda-caba">
-	        <?php
-	        		if ($empresa->provinciaid == 0):
+	        <?php 
+	        		if ($empresa->provinciaid == 0): 
 	        			echo '147 Tel&eacute;fono Gratuito CABA, &Aacute;rea de Defensa y Protecci&oacute;n al Consumidor';
 	        		elseif ($empresa->provinciaid == 1):
-	        			echo 'Orientaci&oacute;n al consumidor Provincia de Buenos Aires 0800-222-9042';
-	        		else:
+	        			echo 'Orientaci&oacute;n al consumidor Provincia de Buenos Aires 0800-222-9042'; 
+	        		else: 
 	        			'';
-	        		endif;
+	        		endif; 
 	        ?>
 	        </div>
-
+	        
 	        <div class="razon-social-emite">
 	            Raz&oacute;n Social del que emite -
-	            <?php
+	            <?php 
 	            if ($MODELO != '4' and $letra_factura != 'B') {
 	                if (strlen($empresa->razonsocial) >= 22) {
 	                    echo "<br>";
@@ -278,8 +317,8 @@ $BARCODE_PHP = Barcode::getCode(
 	            ?>
 	            <?= $empresa->razonsocial?>
 	        <br> C.U.I.T. N&deg; <?=    Formato::cuit($empresa->nrocuit) ?>
-	        </div>
-
+	        </div>	        
+        
 
         <div class="vencimiento-cai">Vto. CAE: <?= Formato::fecha($pie->caevencimiento) ?></div>
         <div class="vencimiento-cai2"></div>
@@ -306,13 +345,13 @@ var $BARCODE_JS = "<?= $BARCODE_PHP; ?>";
 
 //=====================================================================
 //===================== FACTURAS DEBUGGER =============================
-
+	
 
 //=====================================================================
 //=====================================================================
 
 
-
+	
 // var $fontSize = 11;
 // var nav = navigator.userAgent.toLowerCase();
 
@@ -341,8 +380,8 @@ JsBarcode(".barcode_new_ITF").init();
 <style>
 .barcode_1 img{
   display: block;
-}
-
+}            
+ 
 .container-3A .barcode_1 {
   top: 1150px;
   left: 247px;
@@ -350,7 +389,7 @@ JsBarcode(".barcode_new_ITF").init();
   overflow: hidden;
   width: 1284px;
   display: block;
-}
+}            
 .container-4A .barcode_1 {
   top: 1140px;
   left: 240px;
@@ -393,7 +432,7 @@ JsBarcode(".barcode_new_ITF").init();
   font-weight: bold;
   display: block;
 }
-
+            
 .container-3A .vencimiento-cai3_debbug {
   top: 1140px;
   left: 60px;
