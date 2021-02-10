@@ -460,4 +460,3 @@ class FacturasencController extends Controller
         }
     }
 }
-}
