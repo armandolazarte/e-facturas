@@ -18,6 +18,7 @@ use frontend\models\Receptores;
 use frontend\models\Facturasnotas;
 use backend\models\FacturasVistaPublica;
 use backend\models\EmpresaUser;
+use backend\models\PuntosventaEmpresas;
 // use backend\models\FacturasForm;
 use backend\models\ModeloFactura;
 use backend\models\ModeloFacturas;
